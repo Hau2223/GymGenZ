@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9211AC60-B2E9-49D2-BB49-6CB57D5E5815}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>GymGenZ</RootNamespace>
+    <AssemblyName>GymGenZ</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.118.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.118.0\lib\net46\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Installer1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Installer1.Designer.cs">
+      <DependentUpon>Installer1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PControls\CCustomer.cs" />
+    <Compile Include="PControls\CPackage.cs" />
+    <Compile Include="PControls\CStaff.cs" />
+    <Compile Include="PModels\MCustomer.cs" />
+    <Compile Include="PModels\MStaff.cs" />
+    <Compile Include="PModels\MPackage.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PViews\F_Customer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PViews\F_Customer.Designer.cs">
+      <DependentUpon>F_Customer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PViews\F_CustomerSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PViews\F_CustomerSchedule.Designer.cs">
+      <DependentUpon>F_CustomerSchedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PViews\F_ForgetPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PViews\F_ForgetPassword.Designer.cs">
+      <DependentUpon>F_ForgetPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PViews\F_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PViews\F_Login.Designer.cs">
+      <DependentUpon>F_Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PViews\F_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PViews\F_Main.Designer.cs">
+      <DependentUpon>F_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PViews\F_ManagerEpisodePac.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PViews\F_ManagerEpisodePac.Designer.cs">
+      <DependentUpon>F_ManagerEpisodePac.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PViews\F_ManagerProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PViews\F_ManagerProduct.Designer.cs">
+      <DependentUpon>F_ManagerProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PViews\F_ManagerPromotion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PViews\F_ManagerPromotion.Designer.cs">
+      <DependentUpon>F_ManagerPromotion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PViews\F_ManagerStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PViews\F_ManagerStaff.Designer.cs">
+      <DependentUpon>F_ManagerStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PViews\F_Schedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PViews\F_Schedule.Designer.cs">
+      <DependentUpon>F_Schedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PViews\F_SignCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PViews\F_SignCustomer.Designer.cs">
+      <DependentUpon>F_SignCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PViews\F_SignPakage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PViews\F_SignPakage.Designer.cs">
+      <DependentUpon>F_SignPakage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PViews\F_SignPT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PViews\F_SignPT.Designer.cs">
+      <DependentUpon>F_SignPT.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="PViews\F_Customer.resx">
+      <DependentUpon>F_Customer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PViews\F_CustomerSchedule.resx">
+      <DependentUpon>F_CustomerSchedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PViews\F_ForgetPassword.resx">
+      <DependentUpon>F_ForgetPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PViews\F_Login.resx">
+      <DependentUpon>F_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PViews\F_Main.resx">
+      <DependentUpon>F_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PViews\F_ManagerEpisodePac.resx">
+      <DependentUpon>F_ManagerEpisodePac.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PViews\F_ManagerProduct.resx">
+      <DependentUpon>F_ManagerProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PViews\F_ManagerPromotion.resx">
+      <DependentUpon>F_ManagerPromotion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PViews\F_ManagerStaff.resx">
+      <DependentUpon>F_ManagerStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PViews\F_Schedule.resx">
+      <DependentUpon>F_Schedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PViews\F_SignCustomer.resx">
+      <DependentUpon>F_SignCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PViews\F_SignPakage.resx">
+      <DependentUpon>F_SignPakage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PViews\F_SignPT.resx">
+      <DependentUpon>F_SignPT.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoGymZ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_1dcc33a5-1d5d-44c9-ad19-06a27625f6d6-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LogoGym.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checkin1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Vector.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\forgetPassword.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.118.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.118.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.118.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.118.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
+  </Target>
+</Project>
