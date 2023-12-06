@@ -70,8 +70,10 @@
     </Compile>
     <Compile Include="PControls\CCustomer.cs" />
     <Compile Include="PControls\CPackage.cs" />
+    <Compile Include="PControls\CDiscount.cs" />
     <Compile Include="PControls\CStaff.cs" />
     <Compile Include="PModels\MCustomer.cs" />
+    <Compile Include="PModels\MDiscount.cs" />
     <Compile Include="PModels\MStaff.cs" />
     <Compile Include="PModels\MPackage.cs" />
     <Compile Include="Program.cs" />

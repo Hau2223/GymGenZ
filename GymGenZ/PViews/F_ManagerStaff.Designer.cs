@@ -43,6 +43,7 @@
             this.tbCCCDStaff = new System.Windows.Forms.TextBox();
             this.tbRollStaff = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.cbGDFemaleStaff = new System.Windows.Forms.CheckBox();
             this.cbGDMaleStaff = new System.Windows.Forms.CheckBox();
@@ -68,7 +69,6 @@
             this.btnDeleteStaff = new System.Windows.Forms.Button();
             this.btnAddStaff = new System.Windows.Forms.Button();
             this.dtgvStaff = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,8 +78,9 @@
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel8 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel1.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -93,7 +94,6 @@
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvStaff)).BeginInit();
             this.groupBox1.SuspendLayout();
-            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -275,6 +275,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(444, 416);
             this.panel1.TabIndex = 8;
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.tbRollStaff);
+            this.panel8.Controls.Add(this.label7);
+            this.panel8.Location = new System.Drawing.Point(9, 84);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(428, 28);
+            this.panel8.TabIndex = 12;
             // 
             // panel10
             // 
@@ -512,7 +521,7 @@
             this.panel9.Controls.Add(this.btnDeleteStaff);
             this.panel9.Controls.Add(this.btnAddStaff);
             this.panel9.Controls.Add(this.btn_UpdateStaff);
-            this.panel9.Location = new System.Drawing.Point(573, 634);
+            this.panel9.Location = new System.Drawing.Point(450, 618);
             this.panel9.Margin = new System.Windows.Forms.Padding(4);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(597, 69);
@@ -572,20 +581,6 @@
             this.dtgvStaff.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dtgvStaff_DataBindingComplete);
             this.dtgvStaff.SelectionChanged += new System.EventHandler(this.dtgvStaff_SelectionChanged);
             // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.Controls.Add(this.ptbFindStaff);
-            this.groupBox1.Controls.Add(this.tbFindStaff);
-            this.groupBox1.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(19)))), ((int)(((byte)(99)))));
-            this.groupBox1.Location = new System.Drawing.Point(1055, 62);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(318, 77);
-            this.groupBox1.TabIndex = 14;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Tìm Kiếm";
-            // 
             // Column1
             // 
             this.Column1.DataPropertyName = "StaffID";
@@ -608,6 +603,7 @@
             this.Column3.HeaderText = "Vai trò";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
+            this.Column3.Width = 125;
             // 
             // Column4
             // 
@@ -639,6 +635,7 @@
             this.Column7.HeaderText = "Giới tính";
             this.Column7.MinimumWidth = 6;
             this.Column7.Name = "Column7";
+            this.Column7.Width = 125;
             // 
             // Column8
             // 
@@ -656,14 +653,19 @@
             this.Column9.Name = "Column9";
             this.Column9.Width = 125;
             // 
-            // panel8
+            // groupBox1
             // 
-            this.panel8.Controls.Add(this.tbRollStaff);
-            this.panel8.Controls.Add(this.label7);
-            this.panel8.Location = new System.Drawing.Point(9, 84);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(428, 28);
-            this.panel8.TabIndex = 12;
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.ptbFindStaff);
+            this.groupBox1.Controls.Add(this.tbFindStaff);
+            this.groupBox1.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(19)))), ((int)(((byte)(99)))));
+            this.groupBox1.Location = new System.Drawing.Point(1055, 62);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(318, 77);
+            this.groupBox1.TabIndex = 14;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Tìm Kiếm";
             // 
             // F_ManagerStaff
             // 
@@ -685,6 +687,8 @@
             this.Load += new System.EventHandler(this.F_ManagerStaff_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -708,8 +712,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgvStaff)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

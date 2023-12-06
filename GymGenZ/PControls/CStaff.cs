@@ -160,7 +160,6 @@ namespace GymGenZ.PControls
                 }
             }
         }
-
         public bool CheckIDCard(string idCard){
             using (SQLiteConnection con = new SQLiteConnection(_conn)){
                 con.Open();
