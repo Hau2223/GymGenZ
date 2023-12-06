@@ -1,4 +1,5 @@
 ﻿using GymGenZ.PModels;
+using GymGenZ.PViews;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -77,29 +78,13 @@ namespace GymGenZ.PControls
             return customers;
         }
 
-
-
-
-
-
         public Tuple<int, string, string, string, string, string> GetCustomerInfo(int customerId)
         {
             Tuple<int, string, string, string, string, string> customerInfo = null;
 
             using (SQLiteConnection connection = new SQLiteConnection(_connectionString))
             {
-                string query = @"SELECT DISTINCT
-                        c.id AS CustomerID,
-                        c.name AS CustomerName,
-                        p.name AS PackageName,
-                        c.start AS StartDate,
-                        c.end AS EndDate,
-                        st.fullName AS TrainerName
-                     FROM Customer c
-                     JOIN Package p ON c.idPackage = p.id
-                     JOIN TrainingSessions sch ON c.id = sch.customerID
-                     JOIN Staff st ON sch.trainerID = st.id
-                     WHERE c.id = @customerId";
+                string query = $"SELECT * FROM Customer WHERE id = {customerId}";
 
                 using (SQLiteCommand command = new SQLiteCommand(query, connection))
                 {
@@ -127,13 +112,38 @@ namespace GymGenZ.PControls
                     }
                 }
             }
-
             return customerInfo;
         }
 
+        public int getIdMaxCustomer()
+        {
+            int id = 0;
+            using (SQLiteConnection connection = new SQLiteConnection(_connectionString))
+            {
+                string query = "SELECT max(id) FROM Customer";
 
+                using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                {
+                    connection.Open();
 
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            int idCustomer = reader.GetInt32(0);
+                            id = idCustomer;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Customer not found.");
+                        }
+                    }
+                }
+            }
 
+            return id;
+        }
+        
         public bool SignPTrainer(string idCustomer, string idStaff, List<string> lstDate, string shiftCode, int duration)
         {
             try
@@ -170,12 +180,12 @@ namespace GymGenZ.PControls
             }
         }
 
+
         public bool signCustomer(string name, string phone, string cccd, string packageID, string address, string gender)
         {
             try
             {
                 _conn.Open();
-
                 string selectPackageQuery = "SELECT * FROM Package WHERE id = @packageID";
                 using (SQLiteCommand selectPackageCmd = new SQLiteCommand(selectPackageQuery, _conn))
                 {

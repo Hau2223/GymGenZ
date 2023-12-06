@@ -57,18 +57,16 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(331, 831);
+            this.panel1.Size = new System.Drawing.Size(248, 675);
             this.panel1.TabIndex = 0;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::GymGenZ.Properties.Resources.LogoGym;
-            this.pictureBox1.Location = new System.Drawing.Point(55, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Location = new System.Drawing.Point(41, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(232, 151);
+            this.pictureBox1.Size = new System.Drawing.Size(174, 123);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
@@ -83,10 +81,9 @@
             this.panel2.Controls.Add(this.btnStaff);
             this.panel2.Controls.Add(this.btnAddCus);
             this.panel2.Controls.Add(this.btnMain);
-            this.panel2.Location = new System.Drawing.Point(0, 95);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Location = new System.Drawing.Point(0, 77);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(331, 736);
+            this.panel2.Size = new System.Drawing.Size(248, 598);
             this.panel2.TabIndex = 1;
             // 
             // btnSignout
@@ -95,10 +92,9 @@
             this.btnSignout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSignout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnSignout.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSignout.Location = new System.Drawing.Point(80, 658);
-            this.btnSignout.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSignout.Location = new System.Drawing.Point(60, 535);
             this.btnSignout.Name = "btnSignout";
-            this.btnSignout.Size = new System.Drawing.Size(140, 47);
+            this.btnSignout.Size = new System.Drawing.Size(105, 38);
             this.btnSignout.TabIndex = 7;
             this.btnSignout.Text = "Đăng xuất";
             this.btnSignout.UseVisualStyleBackColor = true;
@@ -112,10 +108,9 @@
             this.btnPakage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnPakage.ForeColor = System.Drawing.Color.White;
             this.btnPakage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPakage.Location = new System.Drawing.Point(16, 452);
-            this.btnPakage.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPakage.Location = new System.Drawing.Point(12, 367);
             this.btnPakage.Name = "btnPakage";
-            this.btnPakage.Size = new System.Drawing.Size(317, 57);
+            this.btnPakage.Size = new System.Drawing.Size(238, 46);
             this.btnPakage.TabIndex = 6;
             this.btnPakage.Text = "Quản lý gói tập";
             this.btnPakage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -131,10 +126,9 @@
             this.btnDiscout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnDiscout.ForeColor = System.Drawing.Color.White;
             this.btnDiscout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDiscout.Location = new System.Drawing.Point(16, 388);
-            this.btnDiscout.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDiscout.Location = new System.Drawing.Point(12, 315);
             this.btnDiscout.Name = "btnDiscout";
-            this.btnDiscout.Size = new System.Drawing.Size(317, 57);
+            this.btnDiscout.Size = new System.Drawing.Size(238, 46);
             this.btnDiscout.TabIndex = 5;
             this.btnDiscout.Text = "Quản lý khuyến mãi";
             this.btnDiscout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -150,10 +144,9 @@
             this.btnProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnProduct.ForeColor = System.Drawing.Color.White;
             this.btnProduct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProduct.Location = new System.Drawing.Point(16, 260);
-            this.btnProduct.Margin = new System.Windows.Forms.Padding(4);
+            this.btnProduct.Location = new System.Drawing.Point(12, 211);
             this.btnProduct.Name = "btnProduct";
-            this.btnProduct.Size = new System.Drawing.Size(317, 57);
+            this.btnProduct.Size = new System.Drawing.Size(238, 46);
             this.btnProduct.TabIndex = 4;
             this.btnProduct.Text = "Quản lý sản phẩm";
             this.btnProduct.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -169,10 +162,9 @@
             this.btnCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnCustomer.ForeColor = System.Drawing.Color.White;
             this.btnCustomer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCustomer.Location = new System.Drawing.Point(16, 196);
-            this.btnCustomer.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCustomer.Location = new System.Drawing.Point(12, 159);
             this.btnCustomer.Name = "btnCustomer";
-            this.btnCustomer.Size = new System.Drawing.Size(317, 57);
+            this.btnCustomer.Size = new System.Drawing.Size(238, 46);
             this.btnCustomer.TabIndex = 3;
             this.btnCustomer.Text = "Quản lý khách hàng";
             this.btnCustomer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -188,10 +180,9 @@
             this.btnStaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnStaff.ForeColor = System.Drawing.Color.White;
             this.btnStaff.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStaff.Location = new System.Drawing.Point(16, 324);
-            this.btnStaff.Margin = new System.Windows.Forms.Padding(4);
+            this.btnStaff.Location = new System.Drawing.Point(12, 263);
             this.btnStaff.Name = "btnStaff";
-            this.btnStaff.Size = new System.Drawing.Size(317, 57);
+            this.btnStaff.Size = new System.Drawing.Size(238, 46);
             this.btnStaff.TabIndex = 2;
             this.btnStaff.Text = "Quản lý nhân viên";
             this.btnStaff.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -207,10 +198,9 @@
             this.btnAddCus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnAddCus.ForeColor = System.Drawing.Color.White;
             this.btnAddCus.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddCus.Location = new System.Drawing.Point(16, 132);
-            this.btnAddCus.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAddCus.Location = new System.Drawing.Point(12, 107);
             this.btnAddCus.Name = "btnAddCus";
-            this.btnAddCus.Size = new System.Drawing.Size(317, 57);
+            this.btnAddCus.Size = new System.Drawing.Size(238, 46);
             this.btnAddCus.TabIndex = 1;
             this.btnAddCus.Text = "Đăng ký thành viên";
             this.btnAddCus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -226,10 +216,9 @@
             this.btnMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnMain.ForeColor = System.Drawing.Color.White;
             this.btnMain.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMain.Location = new System.Drawing.Point(16, 68);
-            this.btnMain.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMain.Location = new System.Drawing.Point(12, 55);
             this.btnMain.Name = "btnMain";
-            this.btnMain.Size = new System.Drawing.Size(317, 57);
+            this.btnMain.Size = new System.Drawing.Size(238, 46);
             this.btnMain.TabIndex = 0;
             this.btnMain.Text = "Trang chủ";
             this.btnMain.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -243,19 +232,17 @@
             this.lbUser.AutoSize = true;
             this.lbUser.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.lbUser.ForeColor = System.Drawing.Color.Black;
-            this.lbUser.Location = new System.Drawing.Point(330, 46);
-            this.lbUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbUser.Location = new System.Drawing.Point(248, 37);
             this.lbUser.Name = "lbUser";
-            this.lbUser.Size = new System.Drawing.Size(261, 32);
+            this.lbUser.Size = new System.Drawing.Size(202, 25);
             this.lbUser.TabIndex = 0;
             this.lbUser.Text = "Xin chào: Admin";
             // 
             // fMain
             // 
-            this.fMain.Location = new System.Drawing.Point(341, 113);
-            this.fMain.Margin = new System.Windows.Forms.Padding(4);
+            this.fMain.Location = new System.Drawing.Point(256, 92);
             this.fMain.Name = "fMain";
-            this.fMain.Size = new System.Drawing.Size(1542, 687);
+            this.fMain.Size = new System.Drawing.Size(1156, 558);
             this.fMain.TabIndex = 1;
             // 
             // label1
@@ -264,10 +251,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(19)))), ((int)(((byte)(99)))));
-            this.label1.Location = new System.Drawing.Point(77, 25);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(58, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(142, 28);
+            this.label1.Size = new System.Drawing.Size(117, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "CHECK-IN";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -275,10 +261,10 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::GymGenZ.Properties.Resources.checkin;
-            this.pictureBox2.Location = new System.Drawing.Point(3, 2);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox2.Location = new System.Drawing.Point(2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(73, 73);
+            this.pictureBox2.Size = new System.Drawing.Size(55, 59);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
@@ -288,25 +274,24 @@
             // 
             this.panel3.Controls.Add(this.pictureBox2);
             this.panel3.Controls.Add(this.label1);
-            this.panel3.Location = new System.Drawing.Point(1626, 25);
-            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel3.Location = new System.Drawing.Point(1220, 20);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(228, 82);
+            this.panel3.Size = new System.Drawing.Size(171, 67);
             this.panel3.TabIndex = 3;
             // 
             // F_Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(1924, 827);
+            this.ClientSize = new System.Drawing.Size(1443, 672);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lbUser);
             this.Controls.Add(this.fMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "F_Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "F_Main";

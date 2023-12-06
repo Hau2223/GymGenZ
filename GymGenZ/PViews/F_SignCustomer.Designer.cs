@@ -74,7 +74,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(251, 25);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(492, 460);
+            this.panel1.Size = new System.Drawing.Size(495, 454);
             this.panel1.TabIndex = 0;
             // 
             // panel7
@@ -83,7 +83,7 @@
             this.panel7.Controls.Add(this.label7);
             this.panel7.Location = new System.Drawing.Point(3, 296);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(486, 112);
+            this.panel7.Size = new System.Drawing.Size(486, 99);
             this.panel7.TabIndex = 7;
             // 
             // tbAddress
@@ -125,7 +125,6 @@
             this.cbGender.Name = "cbGender";
             this.cbGender.Size = new System.Drawing.Size(371, 21);
             this.cbGender.TabIndex = 1;
-            this.cbGender.SelectedIndexChanged += new System.EventHandler(this.cbGender_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -171,7 +170,7 @@
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(289, 414);
+            this.btnAdd.Location = new System.Drawing.Point(292, 401);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(197, 43);
             this.btnAdd.TabIndex = 4;
@@ -273,7 +272,6 @@
             this.label1.Size = new System.Drawing.Size(240, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Thông tin khách hàng";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // sqLiteCommand1
             // 
@@ -285,12 +283,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1153, 607);
+            this.ClientSize = new System.Drawing.Size(1156, 558);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "F_SignCustomer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "F_SignCustomer";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.F_SignCustomer_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

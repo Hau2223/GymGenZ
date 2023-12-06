@@ -41,18 +41,21 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.checkDate = new System.Windows.Forms.CheckedListBox();
             this.btnSign = new System.Windows.Forms.Button();
+            this.cbSession = new System.Windows.Forms.ComboBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataStaff)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataStaff
             // 
             this.dataStaff.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataStaff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataStaff.Location = new System.Drawing.Point(19, 12);
+            this.dataStaff.Location = new System.Drawing.Point(12, 161);
             this.dataStaff.Name = "dataStaff";
-            this.dataStaff.Size = new System.Drawing.Size(1097, 174);
+            this.dataStaff.Size = new System.Drawing.Size(1097, 214);
             this.dataStaff.TabIndex = 0;
             this.dataStaff.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataStaff_CellContentClick);
             this.dataStaff.SelectionChanged += new System.EventHandler(this.dataStaff_SelectionChanged);
@@ -67,9 +70,9 @@
             this.groupBox1.Controls.Add(this.rdoC3);
             this.groupBox1.Controls.Add(this.rdoC2);
             this.groupBox1.Controls.Add(this.rdoC1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 265);
+            this.groupBox1.Location = new System.Drawing.Point(12, 22);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(476, 50);
+            this.groupBox1.Size = new System.Drawing.Size(512, 66);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ca tập";
@@ -77,7 +80,7 @@
             // rdoC8
             // 
             this.rdoC8.AutoSize = true;
-            this.rdoC8.Location = new System.Drawing.Point(415, 19);
+            this.rdoC8.Location = new System.Drawing.Point(416, 22);
             this.rdoC8.Name = "rdoC8";
             this.rdoC8.Size = new System.Drawing.Size(47, 17);
             this.rdoC8.TabIndex = 7;
@@ -88,7 +91,7 @@
             // rdoC7
             // 
             this.rdoC7.AutoSize = true;
-            this.rdoC7.Location = new System.Drawing.Point(361, 20);
+            this.rdoC7.Location = new System.Drawing.Point(362, 23);
             this.rdoC7.Name = "rdoC7";
             this.rdoC7.Size = new System.Drawing.Size(47, 17);
             this.rdoC7.TabIndex = 6;
@@ -99,7 +102,7 @@
             // rdoC6
             // 
             this.rdoC6.AutoSize = true;
-            this.rdoC6.Location = new System.Drawing.Point(302, 19);
+            this.rdoC6.Location = new System.Drawing.Point(303, 22);
             this.rdoC6.Name = "rdoC6";
             this.rdoC6.Size = new System.Drawing.Size(47, 17);
             this.rdoC6.TabIndex = 5;
@@ -110,7 +113,7 @@
             // rdoC5
             // 
             this.rdoC5.AutoSize = true;
-            this.rdoC5.Location = new System.Drawing.Point(243, 20);
+            this.rdoC5.Location = new System.Drawing.Point(244, 23);
             this.rdoC5.Name = "rdoC5";
             this.rdoC5.Size = new System.Drawing.Size(47, 17);
             this.rdoC5.TabIndex = 4;
@@ -121,7 +124,7 @@
             // rdoC4
             // 
             this.rdoC4.AutoSize = true;
-            this.rdoC4.Location = new System.Drawing.Point(184, 20);
+            this.rdoC4.Location = new System.Drawing.Point(185, 23);
             this.rdoC4.Name = "rdoC4";
             this.rdoC4.Size = new System.Drawing.Size(47, 17);
             this.rdoC4.TabIndex = 3;
@@ -132,7 +135,7 @@
             // rdoC3
             // 
             this.rdoC3.AutoSize = true;
-            this.rdoC3.Location = new System.Drawing.Point(125, 20);
+            this.rdoC3.Location = new System.Drawing.Point(126, 23);
             this.rdoC3.Name = "rdoC3";
             this.rdoC3.Size = new System.Drawing.Size(47, 17);
             this.rdoC3.TabIndex = 2;
@@ -144,7 +147,7 @@
             // rdoC2
             // 
             this.rdoC2.AutoSize = true;
-            this.rdoC2.Location = new System.Drawing.Point(66, 20);
+            this.rdoC2.Location = new System.Drawing.Point(67, 23);
             this.rdoC2.Name = "rdoC2";
             this.rdoC2.Size = new System.Drawing.Size(47, 17);
             this.rdoC2.TabIndex = 1;
@@ -156,7 +159,7 @@
             // rdoC1
             // 
             this.rdoC1.AutoSize = true;
-            this.rdoC1.Location = new System.Drawing.Point(7, 20);
+            this.rdoC1.Location = new System.Drawing.Point(8, 23);
             this.rdoC1.Name = "rdoC1";
             this.rdoC1.Size = new System.Drawing.Size(47, 17);
             this.rdoC1.TabIndex = 0;
@@ -168,9 +171,9 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.checkDate);
-            this.groupBox2.Location = new System.Drawing.Point(12, 193);
+            this.groupBox2.Location = new System.Drawing.Point(12, 89);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1104, 66);
+            this.groupBox2.Size = new System.Drawing.Size(512, 66);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Ngày tập";
@@ -189,13 +192,13 @@
             this.checkDate.Location = new System.Drawing.Point(7, 19);
             this.checkDate.MultiColumn = true;
             this.checkDate.Name = "checkDate";
-            this.checkDate.Size = new System.Drawing.Size(1091, 34);
+            this.checkDate.Size = new System.Drawing.Size(496, 34);
             this.checkDate.TabIndex = 0;
             this.checkDate.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkDate_ItemCheck);
             // 
             // btnSign
             // 
-            this.btnSign.Location = new System.Drawing.Point(945, 334);
+            this.btnSign.Location = new System.Drawing.Point(938, 381);
             this.btnSign.Name = "btnSign";
             this.btnSign.Size = new System.Drawing.Size(171, 39);
             this.btnSign.TabIndex = 3;
@@ -203,12 +206,37 @@
             this.btnSign.UseVisualStyleBackColor = true;
             this.btnSign.Click += new System.EventHandler(this.btnSign_Click);
             // 
+            // cbSession
+            // 
+            this.cbSession.FormattingEnabled = true;
+            this.cbSession.Items.AddRange(new object[] {
+            "12",
+            "24",
+            "36",
+            "48"});
+            this.cbSession.Location = new System.Drawing.Point(6, 19);
+            this.cbSession.Name = "cbSession";
+            this.cbSession.Size = new System.Drawing.Size(121, 21);
+            this.cbSession.TabIndex = 4;
+            this.cbSession.SelectedIndexChanged += new System.EventHandler(this.cbSession_SelectedIndexChanged);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.cbSession);
+            this.groupBox3.Location = new System.Drawing.Point(530, 22);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(132, 66);
+            this.groupBox3.TabIndex = 5;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Số buổi";
+            // 
             // F_SignPT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(1128, 398);
+            this.ClientSize = new System.Drawing.Size(1128, 428);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btnSign);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -221,6 +249,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -240,5 +269,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.CheckedListBox checkDate;
         private System.Windows.Forms.Button btnSign;
+        private System.Windows.Forms.ComboBox cbSession;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }

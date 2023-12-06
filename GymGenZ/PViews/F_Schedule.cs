@@ -25,23 +25,23 @@ namespace GymGenZ.PViews
         }
         private void loadDataCustomer()
         {
-            Tuple<int, string, string, string, string, string> customerInfo = _dataService.GetCustomerInfo(5);
+            //Tuple<int, string, string, string, string, string> customerInfo = _dataService.GetCustomerInfo(5);
 
-            if (customerInfo != null)
-            {
-                int idCustomer = customerInfo.Item1;
-                string nameCustomer = customerInfo.Item2;
-                string packageName = customerInfo.Item3;
-                string startDate = customerInfo.Item4;
-                string endDate = customerInfo.Item5;
-                string trainerName = customerInfo.Item6;
-                tbID.Text = idCustomer.ToString();
-                tbName.Text = nameCustomer.ToString();
-                tbNamePakage.Text = packageName.ToString();
-                tbStart.Text = startDate.ToString();
-                tbEnd.Text = endDate.ToString();
-                tbPT.Text = trainerName.ToString();   
-            }
+            //if (customerInfo != null)
+            //{
+            //    int idCustomer = customerInfo.Item1;
+            //    string nameCustomer = customerInfo.Item2;
+            //    string packageName = customerInfo.Item3;
+            //    string startDate = customerInfo.Item4;
+            //    string endDate = customerInfo.Item5;
+            //    string trainerName = customerInfo.Item6;
+            //    tbID.Text = idCustomer.ToString();
+            //    tbName.Text = nameCustomer.ToString();
+            //    tbNamePakage.Text = packageName.ToString();
+            //    tbStart.Text = startDate.ToString();
+            //    tbEnd.Text = endDate.ToString();
+            //    tbPT.Text = trainerName.ToString();   
+            //}
         }
 
 

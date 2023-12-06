@@ -10,7 +10,10 @@ namespace GymGenZ.PViews
     {
         private List<string> checkDateData;
         private string idStaff;
-        private string receivedValue;
+        private string idCus;
+        DateTime currentDate = DateTime.Now;
+        int checkCount = 0;
+        int coutCBSession = 0;
 
 
         public F_SignPT(string idCustomer)
@@ -18,32 +21,71 @@ namespace GymGenZ.PViews
             InitializeComponent();
             checkDateData = new List<string>();
             LoadDataGridView();
-            receivedValue = idCustomer;
-            MessageBox.Show(receivedValue);
+            idCus = idCustomer;
+        }
+
+        private bool checkDateTrainer(int datelife, int dateWithTrainer)
+        {
+            if(datelife - 7 > dateWithTrainer)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private void btnSign_Click(object sender, EventArgs e)
         {
-            checkDateData = GetCheckedItems();
-            foreach(string data in checkDateData)
+            CCustomer customer = new CCustomer("Data Source=C:\\data\\GYM.db");
+            Tuple<int, string, string, string, string, string> customerInfo = customer.GetCustomerInfo(int.Parse(idCus));
+            DateTime endDate = DateTime.Parse(customerInfo.Item6);
+
+            TimeSpan dayLife = endDate - currentDate;
+            if (coutCBSession == 0 || checkCount == 0)
             {
-                MessageBox.Show(data);
+                MessageBox.Show("Vui lòng chọn đầy đủ thông tin!");
+                return;
             }
-            string shiftCode = checkRadioShiftCode();
-            string idCustomer = receivedValue;
-            int duration = 30;
+            int session = int.Parse(cbSession.SelectedItem.ToString());
+            int dayWithTrainer = (session / checkCount * 7);
 
-            CCustomer customerManager = new CCustomer("Data Source=C:\\data\\GYM.db");
-            bool result = customerManager.SignPTrainer(idCustomer, idStaff, checkDateData, shiftCode, duration);
-
-            if (result)
+            bool resultCheckDate = checkDateTrainer(dayLife.Days, dayWithTrainer);
+            if(resultCheckDate == true)
             {
-                MessageBox.Show("Đăng ký thành công!!");
+                checkDateData = GetCheckedItems();
+                foreach (string data in checkDateData)
+                {
+                    MessageBox.Show(data);
+                }
+                string shiftCode = checkRadioShiftCode();
+                if(shiftCode == null)
+                {
+                    MessageBox.Show("Vui lòng chọn đầy đủ thông tin!");
+                    return;
+                }
+                string idCustomer = idCus;
+                int duration = session;
+
+                CCustomer customerManager = new CCustomer("Data Source=C:\\data\\GYM.db");
+                bool result = customerManager.SignPTrainer(idCustomer, idStaff, checkDateData, shiftCode, duration);
+
+                if (result)
+                {
+                    MessageBox.Show("Đăng ký thành công!!");
+                }
+                else
+                {
+                    MessageBox.Show("Đăng ký không thành công!");
+                };
             }
             else
             {
-                MessageBox.Show("Đăng ký không thành công!");
+                MessageBox.Show("Thời gian tập không hợp lệ!");
             }
+
+            
         }
 
         private List<string> GetCheckedItems()
@@ -130,11 +172,13 @@ namespace GymGenZ.PViews
         private void checkDate_SelectedValueChanged(object sender, EventArgs e)
         {
             checkDateData = GetCheckedItems();
+
             LoadDataGridView();
         }
 
         private void checkDate_ItemCheck(object sender, ItemCheckEventArgs e)
         {
+            checkCount = checkDate.CheckedItems.Count + 1;
             checkDate.ItemCheck -= checkDate_ItemCheck;
            
             if (e.NewValue == CheckState.Checked)
@@ -195,13 +239,17 @@ namespace GymGenZ.PViews
             {
                 DataGridViewRow selectedRow = dataStaff.SelectedRows[0];
                 idStaff = selectedRow.Cells["StaffID"].Value.ToString();
-                MessageBox.Show(idStaff);
             }
         }
 
         private void F_SignPT_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void cbSession_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            coutCBSession += 1;
         }
     }
 }

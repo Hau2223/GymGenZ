@@ -38,6 +38,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "F_SignPakage";
             this.Text = "F_SignPakage";
+            this.Load += new System.EventHandler(this.F_SignPakage_Load);
             this.ResumeLayout(false);
 
         }

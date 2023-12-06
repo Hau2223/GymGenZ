@@ -16,6 +16,7 @@ namespace GymGenZ.PViews
     public partial class F_SignCustomer : Form
     {
         private SQLiteConnection conn = new SQLiteConnection("Data Source=C:\\data\\GYM.db");
+        private int idMaxCus = 0;
         
         public F_SignCustomer()
         {
@@ -46,16 +47,35 @@ namespace GymGenZ.PViews
             }
         }
 
+     
+
+        private F_Main FindOpenF_Main()
+        {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form is F_Main fMain && !fMain.IsDisposed)
+                {
+                    return fMain;
+                }
+            }
+            return null;
+        }
+
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            CCustomer customerManager = new CCustomer("Data Source=C:\\data\\GYM.db");
+            
             string name = tbName.Text;
             string phone = tbPhone.Text;
             string cccd = tbID.Text;
             string idPakage = cbPakage.SelectedValue.ToString();
-            string gender = cbGender.SelectedItem.ToString();
-            string address = tbAddress.Text;
+            string gender = "";
+
+            if(tbAddress.Text == "" || tbName.Text == "" ||  tbPhone.Text == "" || tbID.Text == "")
+            {
+                MessageBox.Show("vui lòng nhập đầy đủ thông tin.");
+                return;
+            }
 
             if (!IsValidPhoneNumber(phone))
             {
@@ -69,16 +89,46 @@ namespace GymGenZ.PViews
                 return;
             }
 
-            bool result = customerManager.signCustomer(name, phone, cccd, idPakage, address, gender);
-
-            if (result)
+            string address = tbAddress.Text;
+            if (cbGender.SelectedItem == null)
             {
-                MessageBox.Show("Thêm khách hàng thành công.");
+                MessageBox.Show("Vui lòng chọn giới tính !!");
+                return;
             }
             else
             {
-                MessageBox.Show("Thêm khách hàng thất bại.");
+                gender = cbGender.SelectedItem.ToString();
             }
+
+            F_Main currentFMain = FindOpenF_Main();
+
+            if (currentFMain != null)
+            {
+                Panel fmainPanel = currentFMain.GetPanel();
+
+                if (fmainPanel != null)
+                {
+                    F_Payment f = new F_Payment(name, phone, cccd, address, gender, idPakage, null);
+                    f.TopLevel = false;
+                    f.Dock = DockStyle.Fill;
+                    fmainPanel.Controls.Add(f);
+                    f.Show();
+                    f.BringToFront();
+                }
+                else
+                {
+                    MessageBox.Show("Panel is null or not initialized in F_Main.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("F_Main is not open or disposed.");
+            }
+
+            
+
+
+
         }
         private bool IsValidPhoneNumber(string phoneNumber)
         {
@@ -91,15 +141,6 @@ namespace GymGenZ.PViews
         }
 
         private void F_SignCustomer_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cbGender_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void label1_Click(object sender, EventArgs e)
         {
 
         }

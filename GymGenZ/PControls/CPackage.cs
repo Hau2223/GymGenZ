@@ -40,6 +40,37 @@ namespace GymGenZ.PControls
             return packages;
         }
 
+        public Tuple<int, string, int, int> getPackage(string packageId)
+        {
+            Tuple<int, string, int, int> packageInfo = null;
+
+            using (SQLiteConnection connection = new SQLiteConnection(_conn))
+            {
+                string query = $"SELECT * FROM Package WHERE id = {packageId}";
+
+                using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            int idPackage = reader.GetInt32(0);
+                            string namePackage = reader.GetString(1);
+                            int time = reader.GetInt32(2);
+                            int price = reader.GetInt32(3);
+
+                            packageInfo = Tuple.Create(idPackage, namePackage, time, price);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Customer not found.");
+                        }
+                    }
+                }
+            }
+            return packageInfo;
+        }
+
 
     }
 }
