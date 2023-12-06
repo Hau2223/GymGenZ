@@ -30,6 +30,7 @@
         {
             this.label10 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -56,15 +57,14 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel9.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // label10
@@ -87,6 +87,18 @@
             this.panel10.Size = new System.Drawing.Size(288, 55);
             this.panel10.TabIndex = 11;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(19)))), ((int)(((byte)(99)))));
+            this.pictureBox2.Image = global::GymGenZ.Properties.Resources.Vector;
+            this.pictureBox2.Location = new System.Drawing.Point(216, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(55, 43);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox2.TabIndex = 9;
+            this.pictureBox2.TabStop = false;
+            // 
             // textBox9
             // 
             this.textBox9.Location = new System.Drawing.Point(10, 14);
@@ -106,9 +118,9 @@
             this.columnHeader5,
             this.columnHeader6});
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(20, 140);
+            this.listView1.Location = new System.Drawing.Point(20, 159);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(496, 368);
+            this.listView1.Size = new System.Drawing.Size(517, 349);
             this.listView1.TabIndex = 12;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -319,22 +331,10 @@
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(548, 161);
+            this.panel1.Location = new System.Drawing.Point(558, 159);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(468, 327);
             this.panel1.TabIndex = 13;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(19)))), ((int)(((byte)(99)))));
-            this.pictureBox2.Image = global::GymGenZ.Properties.Resources.Vector;
-            this.pictureBox2.Location = new System.Drawing.Point(216, 4);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(55, 43);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox2.TabIndex = 9;
-            this.pictureBox2.TabStop = false;
             // 
             // F_ManagerProduct
             // 
@@ -354,6 +354,7 @@
             this.Load += new System.EventHandler(this.F_ManagerProduct_Load);
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -365,7 +366,6 @@
             this.panel5.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
