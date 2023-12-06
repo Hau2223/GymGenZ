@@ -141,51 +141,67 @@ namespace GymGenZ.PViews
 
         private void btn_UpdateStaff_Click(object sender, EventArgs e)
         {
-            MStaff updatedStaff = new MStaff
+            DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn thêm nhân viên này hay không?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.Yes)
             {
-                staffID = tbIDStaff.Text,
-                username = tbAccStaff.Text,
-                roll = tbRollStaff.Text,
-                fullname = tbFNameStaff.Text,
-                numberPhone = tbSTDStaff.Text,
-                idCard = tbCCCDStaff.Text,
-                gender = cbGDMaleStaff.Checked ? "Nam" : "Nữ",
-                birth = dtpkBirthStaff.Value.ToString("yyyy-MM-dd"),
-                address = tbAddressStaff.Text
-            };
-
-            bool updatedSuccessfully = _dataStaff.UpdateStaff(updatedStaff);
-            if (updatedSuccessfully)
-            {
-                MessageBox.Show("Cập nhật thông tin nhân viên thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                loadDataToGrid();
+                MStaff updatedStaff = new MStaff
+                {
+                    staffID = tbIDStaff.Text,
+                    username = tbAccStaff.Text,
+                    roll = tbRollStaff.Text,
+                    fullname = tbFNameStaff.Text,
+                    numberPhone = tbSTDStaff.Text,
+                    idCard = tbCCCDStaff.Text,
+                    gender = cbGDMaleStaff.Checked ? "Nam" : "Nữ",
+                    birth = dtpkBirthStaff.Value.ToString("yyyy-MM-dd"),
+                    address = tbAddressStaff.Text
+                };
+                if (!string.IsNullOrEmpty(_idStaff))
+                {
+                    bool updatedSuccessfully = _dataStaff.UpdateStaff(updatedStaff);
+                    if (updatedSuccessfully)
+                    {
+                        MessageBox.Show("Cập nhật thông tin nhân viên thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        loadDataToGrid();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không thể cập nhật thông tin nhân viên.\nVui lòng thử lại!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn nhân viên cần cập nhật từ danh sách!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            else
-            {
-                MessageBox.Show("Không thể cập nhật thông tin nhân viên.\nVui lòng thử lại!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            
         }
 
         private void btnDeleteStaff_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(_idStaff))
+            DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn xóa nhân viên này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.Yes)
             {
-                bool deletedSuccessfully = _dataStaff.DeleteStaff(_idStaff);
-                if (deletedSuccessfully)
+                if (!string.IsNullOrEmpty(_idStaff))
                 {
-                    MessageBox.Show("Xóa nhân viên thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    loadDataToGrid();
-                    ClearFields(); 
+                    bool deletedSuccessfully = _dataStaff.DeleteStaff(_idStaff);
+                    if (deletedSuccessfully)
+                    {
+                        MessageBox.Show("Xóa nhân viên thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        loadDataToGrid();
+                        ClearFields();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không thể xóa nhân viên.\nVui lòng thử lại!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Không thể xóa nhân viên.\nVui lòng thử lại!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Vui lòng chọn nhân viên cần xóa từ danh sách!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
-            else
-            {
-                MessageBox.Show("Vui lòng chọn nhân viên cần xóa từ danh sách!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            
         }
         private void ClearFields()
         {
