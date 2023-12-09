@@ -33,9 +33,28 @@ namespace GymGenZ.PControls
                     insertCmd.Parameters.AddWithValue("@price", newProduct.price);
                     insertCmd.Parameters.AddWithValue("@idCateProduct", newProduct.idCateProduct);
                     insertCmd.Parameters.AddWithValue("@image", newProduct.image);
-
-                    //con.Open();
                     int rowsAffected = insertCmd.ExecuteNonQuery();
+                    return rowsAffected > 0;
+                }
+            }
+        }
+
+        public bool updateProduct(MProduct product)
+        {
+            using (SQLiteConnection con = new SQLiteConnection(_conn))
+            {
+                string updateQuery = "UPDATE Product SET id = @id, nameProduct = @nameProduct, " +
+                                     "count = @count, price = @price, idCateProduct = @idCateProduct, " +
+                                     "image = @image WHERE id = @id";
+                using (SQLiteCommand updateCmd = new SQLiteCommand(updateQuery, con))
+                {
+                    updateCmd.Parameters.AddWithValue("@id", product.id);
+                    updateCmd.Parameters.AddWithValue("@nameProduct", product.nameProduct);
+                    updateCmd.Parameters.AddWithValue("@count", product.count);
+                    updateCmd.Parameters.AddWithValue("@price", product.price);
+                    updateCmd.Parameters.AddWithValue("@idCateProduct", product.idCateProduct);
+                    updateCmd.Parameters.AddWithValue("@image", product.image);
+                    int rowsAffected = updateCmd.ExecuteNonQuery();
                     return rowsAffected > 0;
                 }
             }
@@ -60,6 +79,19 @@ namespace GymGenZ.PControls
             }
             return cateProduct;
         }
+        public bool deleteProduct(string idProduct)
+        {
+            using (SQLiteConnection con = new SQLiteConnection(_conn))
+            {
+                string deleteQuery = $"DELETE FROM Product WHERE ID = {idProduct}";
+                using (SQLiteCommand deleteCmd = new SQLiteCommand(deleteQuery, con))
+                {;
+                    int rowsAffected = deleteCmd.ExecuteNonQuery();
+                    return rowsAffected > 0;
+                }
+            }
+        }
+
 
 
         public List<MProduct> getAllProduct(string searchText)
@@ -70,7 +102,7 @@ namespace GymGenZ.PControls
                         p.nameProduct as NameProduct,
                         p.count as Count,
                         p.price as Price,
-                        ct.name as NameCateGory
+                        p.image as ImageProduct
                         FROM Product p
                         LEFT JOIN CategoryProduct ct ON p.idCateProduct = ct.id
                         WHERE p.nameProduct LIKE @searchText OR
@@ -89,7 +121,7 @@ namespace GymGenZ.PControls
                             nameProduct = reader["NameProduct"].ToString(),
                             count = int.Parse(reader["Count"].ToString()),
                             price = int.Parse(reader["Price"].ToString()),
-                            nameCate = reader["NameCateGory"].ToString(),
+                            image = reader["ImageProduct"].ToString(),
                         };
 
                         productList.Add(product);

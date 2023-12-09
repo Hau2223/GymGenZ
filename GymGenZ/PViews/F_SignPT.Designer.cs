@@ -43,17 +43,21 @@
             this.btnSign = new System.Windows.Forms.Button();
             this.cbSession = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lbName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataStaff)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataStaff
             // 
             this.dataStaff.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataStaff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataStaff.Location = new System.Drawing.Point(12, 161);
+            this.dataStaff.Location = new System.Drawing.Point(12, 202);
             this.dataStaff.Name = "dataStaff";
             this.dataStaff.Size = new System.Drawing.Size(1097, 214);
             this.dataStaff.TabIndex = 0;
@@ -70,7 +74,7 @@
             this.groupBox1.Controls.Add(this.rdoC3);
             this.groupBox1.Controls.Add(this.rdoC2);
             this.groupBox1.Controls.Add(this.rdoC1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 22);
+            this.groupBox1.Location = new System.Drawing.Point(12, 63);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(512, 66);
             this.groupBox1.TabIndex = 1;
@@ -171,7 +175,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.checkDate);
-            this.groupBox2.Location = new System.Drawing.Point(12, 89);
+            this.groupBox2.Location = new System.Drawing.Point(12, 130);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(512, 66);
             this.groupBox2.TabIndex = 2;
@@ -198,7 +202,7 @@
             // 
             // btnSign
             // 
-            this.btnSign.Location = new System.Drawing.Point(938, 381);
+            this.btnSign.Location = new System.Drawing.Point(938, 422);
             this.btnSign.Name = "btnSign";
             this.btnSign.Size = new System.Drawing.Size(171, 39);
             this.btnSign.TabIndex = 3;
@@ -223,12 +227,41 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.cbSession);
-            this.groupBox3.Location = new System.Drawing.Point(530, 22);
+            this.groupBox3.Location = new System.Drawing.Point(530, 63);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(132, 66);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Số buổi";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.lbName);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Location = new System.Drawing.Point(12, 25);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(512, 32);
+            this.panel1.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label1.Location = new System.Drawing.Point(5, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(121, 16);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Tên khách hàng:";
+            // 
+            // lbName
+            // 
+            this.lbName.AutoSize = true;
+            this.lbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbName.Location = new System.Drawing.Point(132, 9);
+            this.lbName.Name = "lbName";
+            this.lbName.Size = new System.Drawing.Size(45, 16);
+            this.lbName.TabIndex = 1;
+            this.lbName.Text = "name";
             // 
             // F_SignPT
             // 
@@ -236,6 +269,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1128, 428);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btnSign);
             this.Controls.Add(this.groupBox2);
@@ -250,6 +284,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -271,5 +307,8 @@
         private System.Windows.Forms.Button btnSign;
         private System.Windows.Forms.ComboBox cbSession;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbName;
     }
 }

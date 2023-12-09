@@ -77,6 +77,8 @@
             this.dataProduct.Name = "dataProduct";
             this.dataProduct.Size = new System.Drawing.Size(627, 458);
             this.dataProduct.TabIndex = 0;
+            this.dataProduct.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataProduct_CellContentClick);
+            this.dataProduct.SelectionChanged += new System.EventHandler(this.dataProduct_SelectionChanged);
             // 
             // groupBox1
             // 
@@ -86,7 +88,6 @@
             this.groupBox1.Controls.Add(this.panel4);
             this.groupBox1.Controls.Add(this.panel3);
             this.groupBox1.Controls.Add(this.panel2);
-            this.groupBox1.Controls.Add(this.panel1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.groupBox1.Location = new System.Drawing.Point(646, 81);
             this.groupBox1.Name = "groupBox1";
@@ -100,7 +101,7 @@
             this.panel7.Controls.Add(this.btnDelete);
             this.panel7.Controls.Add(this.btnUpdate);
             this.panel7.Controls.Add(this.btnAdd);
-            this.panel7.Location = new System.Drawing.Point(6, 394);
+            this.panel7.Location = new System.Drawing.Point(6, 353);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(467, 72);
             this.panel7.TabIndex = 6;
@@ -114,6 +115,7 @@
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "Xóa";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnUpdate
             // 
@@ -124,6 +126,7 @@
             this.btnUpdate.TabIndex = 1;
             this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnAdd
             // 
@@ -140,7 +143,7 @@
             // 
             this.panel6.Controls.Add(this.tbPriceP);
             this.panel6.Controls.Add(this.label6);
-            this.panel6.Location = new System.Drawing.Point(6, 133);
+            this.panel6.Location = new System.Drawing.Point(6, 92);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(467, 34);
             this.panel6.TabIndex = 5;
@@ -168,7 +171,7 @@
             this.panel5.Controls.Add(this.picImageP);
             this.panel5.Controls.Add(this.btnGetImage);
             this.panel5.Controls.Add(this.label5);
-            this.panel5.Location = new System.Drawing.Point(6, 253);
+            this.panel5.Location = new System.Drawing.Point(6, 212);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(467, 135);
             this.panel5.TabIndex = 4;
@@ -208,7 +211,7 @@
             // 
             this.panel4.Controls.Add(this.tbTotalP);
             this.panel4.Controls.Add(this.label4);
-            this.panel4.Location = new System.Drawing.Point(6, 213);
+            this.panel4.Location = new System.Drawing.Point(6, 172);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(467, 34);
             this.panel4.TabIndex = 3;
@@ -235,7 +238,7 @@
             // 
             this.panel3.Controls.Add(this.cbCate);
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Location = new System.Drawing.Point(6, 173);
+            this.panel3.Location = new System.Drawing.Point(6, 132);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(467, 34);
             this.panel3.TabIndex = 2;
@@ -263,7 +266,7 @@
             // 
             this.panel2.Controls.Add(this.tbNameP);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(6, 93);
+            this.panel2.Location = new System.Drawing.Point(6, 52);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(467, 34);
             this.panel2.TabIndex = 1;
@@ -290,10 +293,11 @@
             // 
             this.panel1.Controls.Add(this.tbIdP);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(6, 53);
+            this.panel1.Location = new System.Drawing.Point(658, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(467, 34);
             this.panel1.TabIndex = 0;
+            this.panel1.Visible = false;
             // 
             // tbIdP
             // 
@@ -357,6 +361,7 @@
             this.Controls.Add(this.lbGetLocationImage);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataProduct);
+            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "F_ManagerProduct";
             this.Text = "F_ManagerProduct";

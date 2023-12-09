@@ -19,6 +19,7 @@ namespace GymGenZ.PViews
         string byteImage = "";
         List<MProduct> productList;
         CProduct productManager = new CProduct("Data Source=C:\\data\\GYM.db");
+        string idProduct;
 
 
         public F_ManagerProduct()
@@ -52,11 +53,20 @@ namespace GymGenZ.PViews
 
         private Image ByteToImg(string byteString)
         {
-            byte[] imgBytes = Convert.FromBase64String(byteString);
-            MemoryStream ms = new MemoryStream(imgBytes, 0, imgBytes.Length);
-            ms.Write(imgBytes, 0, imgBytes.Length);
-            Image image = Image.FromStream(ms, true);
-            return image;
+            if(byteString != null)
+            {
+                byte[] imgBytes = Convert.FromBase64String(byteString);
+                MemoryStream ms = new MemoryStream(imgBytes, 0, imgBytes.Length);
+                ms.Write(imgBytes, 0, imgBytes.Length);
+                Image image = Image.FromStream(ms, true);
+                return image;
+            }
+            else
+            {
+                MessageBox.Show("err convert img");
+                return null;
+            }
+           
         }
 
         private void btnGetImage_Click(object sender, EventArgs e)
@@ -102,35 +112,65 @@ namespace GymGenZ.PViews
             }
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private bool checkNull()
         {
-            if (tbNameP.Text == "" || tbPriceP.Text == "" || tbTotalP.Text == "" || cbCate.SelectedValue.ToString() == "" || lbGetLocationImage.Text == "")
+            if (tbNameP.Text == "" || tbPriceP.Text == "" || tbTotalP.Text == "" || cbCate.SelectedValue.ToString() == "" || picImageP.Image == null)
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin!!");
-                return;
+                return false;
             }
-
-            if(int.TryParse(tbPriceP.Text, out int result))
+            else
             {
+                return true;
+            }
+        }
 
+        private bool check_int()
+        {
+            if (int.TryParse(tbPriceP.Text, out int result))
+            {
+                if (int.TryParse(tbTotalP.Text, out int resultTotal))
+                {
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Số lượng kho phải là một số nguyên!");
+                    return false;
+                }
             }
             else
             {
                 MessageBox.Show("Giá phải là một số nguyên!");
-                return;
+                return false;
             }
+        }
 
-            if (int.TryParse(tbTotalP.Text, out int resultTotal))
+        private bool checkItemSelected()
+        {
+            if (tbIdP.Text == "")
             {
-
+                MessageBox.Show("Vui lòng chọn sản phẩm!");
+                return false;
             }
             else
             {
-                MessageBox.Show("Số lượng kho phải là một số nguyên!");
+                return true;
+            }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            bool check = checkNull();
+            if(check == false)
+            {
                 return;
             }
-
-            //CProduct productManager = new CProduct("Data Source=C:\\data\\GYM.db");
+            bool checkint = check_int();
+            if(checkint == false)
+            {
+                return;
+            }
 
             MProduct newProduct = new MProduct
             {
@@ -144,20 +184,112 @@ namespace GymGenZ.PViews
             bool resultAddProduct = productManager.addProduct(newProduct);
             if(resultAddProduct)
             {
-                MessageBox.Show("Thêm sản phẩm thành công!");
-                tbNameP.Text = "";
-                tbPriceP.Text = "";
-                tbTotalP.Text = "";
-                cbCate.SelectedIndex = 0;
-                picImageP.Image = null;
+                clearItem();
+                loadDataToGrid();
+                MessageBox.Show("Thêm sản phẩm thành công!"); 
             }
             else
             {
                 MessageBox.Show("Thêm sản phẩm thất bại!");
             }
-           
-
             
+        }
+
+        private void dataProduct_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataProduct.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = dataProduct.SelectedRows[0];
+                idProduct = selectedRow.Cells["id"].Value.ToString();
+                MProduct selectedProduct = productList.FirstOrDefault(product => product.id.ToString() == idProduct);
+                if (selectedProduct != null)
+                {
+                    tbIdP.Text = selectedProduct.id.ToString();
+                    tbNameP.Text = selectedProduct.nameProduct;
+                    tbPriceP.Text = selectedProduct.price.ToString();
+                    tbTotalP.Text = selectedProduct.count.ToString();
+                    byteImage = selectedProduct.image;
+                    Image image = ByteToImg(selectedProduct.image);
+
+                    if (image != null)
+                    {
+                        picImageP.Image = image;
+                    }
+
+                }
+            }
+        }
+
+        private void dataProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void clearItem()
+        {
+            tbIdP.Text = "";
+            tbNameP.Text = "";
+            tbPriceP.Text = "";
+            tbTotalP.Text = "";
+            cbCate.SelectedIndex = 0;
+            picImageP.Image = null;
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+
+            bool checkID = checkItemSelected();
+            if(checkID == false)
+            {
+                return;
+            }
+            bool check = checkNull();
+            if (check == false)
+            {
+                return;
+            }
+            bool checkint = check_int();
+            if (checkint == false)
+            {
+                return;
+            }
+            MProduct product = new MProduct
+            {
+                id = int.Parse(tbIdP.Text),
+                nameProduct = tbNameP.Text,
+                count = int.Parse(tbTotalP.Text),
+                price = int.Parse(tbPriceP.Text),
+                idCateProduct = int.Parse(cbCate.SelectedValue.ToString()),
+                image = byteImage
+            };
+
+            bool result = productManager.updateProduct(product);
+            if(result)
+            {
+                clearItem();
+                loadDataToGrid();
+                MessageBox.Show("Cập nhật sản phẩm thành công!");
+            }
+            else
+            {
+                MessageBox.Show("Cập nhật sản phẩm thất bại!");
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+           checkItemSelected();
+            bool result = productManager.deleteProduct(tbIdP.Text);
+            if(result)
+            {
+                MessageBox.Show("Xóa sản phẩm thành công!");
+                loadDataToGrid();
+                clearItem();
+            }
+            else
+            {
+                MessageBox.Show("Xóa sản phẩm thất bại!");
+            }
         }
     }
 }

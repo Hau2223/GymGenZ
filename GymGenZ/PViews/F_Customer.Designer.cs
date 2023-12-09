@@ -32,7 +32,6 @@
             this.tbFind = new System.Windows.Forms.TextBox();
             this.dataGripViewCustomer = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btn_Schedule = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnSign_Trainer = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGripViewCustomer)).BeginInit();
@@ -83,20 +82,6 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
-            // btn_Schedule
-            // 
-            this.btn_Schedule.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(19)))), ((int)(((byte)(99)))));
-            this.btn_Schedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Schedule.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btn_Schedule.ForeColor = System.Drawing.Color.White;
-            this.btn_Schedule.Location = new System.Drawing.Point(803, 504);
-            this.btn_Schedule.Name = "btn_Schedule";
-            this.btn_Schedule.Size = new System.Drawing.Size(172, 38);
-            this.btn_Schedule.TabIndex = 5;
-            this.btn_Schedule.Text = "Quản lí lịch tập";
-            this.btn_Schedule.UseVisualStyleBackColor = false;
-            this.btn_Schedule.Click += new System.EventHandler(this.btn_Schedule_Click);
-            // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(19)))), ((int)(((byte)(99)))));
@@ -116,7 +101,7 @@
             this.btnSign_Trainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSign_Trainer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnSign_Trainer.ForeColor = System.Drawing.Color.White;
-            this.btnSign_Trainer.Location = new System.Drawing.Point(589, 504);
+            this.btnSign_Trainer.Location = new System.Drawing.Point(767, 504);
             this.btnSign_Trainer.Name = "btnSign_Trainer";
             this.btnSign_Trainer.Size = new System.Drawing.Size(208, 38);
             this.btnSign_Trainer.TabIndex = 7;
@@ -132,7 +117,6 @@
             this.ClientSize = new System.Drawing.Size(1153, 607);
             this.Controls.Add(this.btnSign_Trainer);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.btn_Schedule);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dataGripViewCustomer);
             this.Controls.Add(this.tbFind);
@@ -155,7 +139,6 @@
         private System.Windows.Forms.TextBox tbFind;
         private System.Windows.Forms.DataGridView dataGripViewCustomer;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btn_Schedule;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnSign_Trainer;
     }

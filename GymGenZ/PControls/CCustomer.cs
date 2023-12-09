@@ -180,8 +180,39 @@ namespace GymGenZ.PControls
             }
         }
 
+        public bool PaymentPackage(int idCustomer, string paymentDay, string paymentMethod, int packageID, int amount)
+        {
+            try
+            {
+                using (SQLiteConnection con = new SQLiteConnection(_connectionString))
+                {
+                    con.Open();
 
-        public bool signCustomer(string name, string phone, string cccd, string packageID, string address, string gender)
+                    string insertQuery = "INSERT INTO Payment (customerID, paymentDate, paymentMethod, packageID, amount) " +
+                                         "VALUES (@idCustomer, @paymentDay, @paymentMethod, @packageID, @amount)";
+
+                    using (SQLiteCommand insertCmd = new SQLiteCommand(insertQuery, con))
+                    {
+                        insertCmd.Parameters.AddWithValue("@idCustomer", idCustomer);
+                        insertCmd.Parameters.AddWithValue("@paymentDay", paymentDay);
+                        insertCmd.Parameters.AddWithValue("@paymentMethod", paymentMethod);
+                        insertCmd.Parameters.AddWithValue("@packageID", packageID);
+                        insertCmd.Parameters.AddWithValue("@amount", amount);
+
+                        int rowsAffected = insertCmd.ExecuteNonQuery();
+                        return rowsAffected > 0;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Error in PaymentPackage: {e.Message}");
+                return false;
+            }
+        }
+
+
+        public bool insertCustomer(string name, string phone, string cccd, string packageID, string address, string gender)
         {
             try
             {
@@ -214,6 +245,7 @@ namespace GymGenZ.PControls
                                 insertCustomerCmd.Parameters.AddWithValue("@address", address);
                                 insertCustomerCmd.Parameters.AddWithValue("@gender", gender);
                                 insertCustomerCmd.ExecuteNonQuery();
+
                                 return true;
                             }
                         }
@@ -233,6 +265,35 @@ namespace GymGenZ.PControls
             finally
             {
                 _conn.Close();
+            }
+        }
+
+        public bool signCustomer(string name, string phone, string cccd, int packageID, string address, string gender, string paymentMethod ,int amount)
+        {
+            try
+            {
+                bool resultInsert = insertCustomer(name, phone, cccd, packageID.ToString(), address, gender);
+                if (resultInsert)
+                {
+                    int idCustomer = getIdMaxCustomer();
+                    DateTime currentDate = DateTime.Now;
+                    bool resultPayment = PaymentPackage(idCustomer, currentDate.ToString(), paymentMethod, packageID, amount);
+                    if (resultPayment)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            }catch(Exception ex)
+            {
+                return false;
             }
         }
     }

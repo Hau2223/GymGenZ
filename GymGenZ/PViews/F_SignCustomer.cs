@@ -108,7 +108,7 @@ namespace GymGenZ.PViews
 
                 if (fmainPanel != null)
                 {
-                    F_Payment f = new F_Payment(name, phone, cccd, address, gender, idPakage, null);
+                    F_Payment f = new F_Payment(name, phone, cccd, address, gender, idPakage);
                     f.TopLevel = false;
                     f.Dock = DockStyle.Fill;
                     fmainPanel.Controls.Add(f);

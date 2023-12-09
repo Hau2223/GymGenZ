@@ -229,5 +229,10 @@ namespace GymGenZ.PViews
                 cbGDMaleStaff.Checked = false;
             }
         }
+
+        private void dtgvStaff_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

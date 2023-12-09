@@ -14,7 +14,5 @@ namespace GymGenZ.PModels
         public int price { get; set; }
         public int idCateProduct { get; set; }
         public string image { get; set; }
-
-        public string nameCate {  get; set; }
     }
 }

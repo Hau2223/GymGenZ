@@ -27,6 +27,11 @@ namespace GymGenZ.PViews
             string username = ipUsername.Text;
             string password = ipPassword.Text;
 
+            if (username == "" || password == "")
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin tài khoản mật khẩu!");
+            } 
+
             bool isAuthenticated = _staff.Login(username, password);
 
             if (isAuthenticated)

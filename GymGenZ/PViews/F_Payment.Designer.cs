@@ -54,7 +54,7 @@
             this.tbStart = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnPayment = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.tbTotalPrice = new System.Windows.Forms.TextBox();
@@ -335,7 +335,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.btnPayment);
             this.groupBox2.Controls.Add(this.panel9);
             this.groupBox2.Controls.Add(this.groupBox3);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
@@ -347,15 +347,15 @@
             this.groupBox2.Text = "Thanh toán";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
-            // button1
+            // btnPayment
             // 
-            this.button1.Location = new System.Drawing.Point(325, 380);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(222, 41);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Thanh toán";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnPayment.Location = new System.Drawing.Point(325, 380);
+            this.btnPayment.Name = "btnPayment";
+            this.btnPayment.Size = new System.Drawing.Size(222, 41);
+            this.btnPayment.TabIndex = 2;
+            this.btnPayment.Text = "Thanh toán";
+            this.btnPayment.UseVisualStyleBackColor = true;
+            this.btnPayment.Click += new System.EventHandler(this.btnPayment_Click);
             // 
             // panel9
             // 
@@ -546,6 +546,6 @@
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.TextBox tbTotalPrice;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnPayment;
     }
 }

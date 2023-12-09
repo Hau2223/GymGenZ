@@ -23,6 +23,12 @@ namespace GymGenZ.PViews
             string newPassword = txtPassword.Text;
             string repeatPassword = txtRepeatPassword.Text;
 
+            if(username == "" || phoneNumber == "" ||  repeatPassword == "" || newPassword == "")
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!");
+                return;
+            }
+
             if (newPassword != repeatPassword)
             {
                 MessageBox.Show("Mật khẩu mới và xác nhận mật khẩu mới không khớp.");

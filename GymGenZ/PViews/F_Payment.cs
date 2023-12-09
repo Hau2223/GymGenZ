@@ -1,4 +1,5 @@
 ﻿using GymGenZ.PControls;
+using GymGenZ.PModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,13 +23,15 @@ namespace GymGenZ.PViews
 
         string _name, _numberPhone, _CCCD, _address, _gender, _idPackage;
         DateTime currentDate = DateTime.Now;
-        
+
         public F_Payment()
         {
             InitializeComponent();
         }
 
-        public F_Payment(string name, string numberPhone, string CCCD, string address, string gender , string idPakage, string idTrainer)
+      
+
+        public F_Payment(string name, string numberPhone, string CCCD, string address, string gender, string idPakage)
         {
             InitializeComponent();
 
@@ -109,86 +112,74 @@ namespace GymGenZ.PViews
             return null;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnPayment_Click(object sender, EventArgs e)
         {
-            
-            bool result = customerManager.signCustomer(_name, _numberPhone, _CCCD, _idPackage, _address, _gender);
+            int amount = int.Parse(tbTotalPrice.Text);
+            string paymentMethod = getMethodPayment();
+            bool result = customerManager.signCustomer(_name, _numberPhone, _CCCD, int.Parse(_idPackage), _address, _gender, paymentMethod, amount);
             if (result)
+            {
+                DialogResult dialogResult = MessageBox.Show("Đăng ký thành công! Bạn có muốn đăng ký huấn luyện viên?", "Thông báo!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Yes)
                 {
-                string paymentMethod = getMethodPayment();
-                int amount = int.Parse(tbTotalPrice.Text);
-                CCustomer customerManager = new CCustomer("Data Source=C:\\data\\GYM.db");
-                int idCustomer = customerManager.getIdMaxCustomer();
-                bool resultPayment = cPayment.PaymentPackage(idCustomer, currentDate.ToString(), paymentMethod, int.Parse(_idPackage), amount);
-                if (resultPayment)
-                {
-                    DialogResult dialogResult = MessageBox.Show("Đăng ký thành công! Bạn có muốn đăng ký huấn luyện viên?", "Thông báo!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (dialogResult == DialogResult.Yes)
+                    int idCustomer = customerManager.getIdMaxCustomer();
+                    F_Main currentFMain = FindOpenF_Main();
+
+                    if (currentFMain != null)
                     {
-                        F_Main currentFMain = FindOpenF_Main();
+                        Panel fmainPanel = currentFMain.GetPanel();
 
-                        if (currentFMain != null)
+                        if (fmainPanel != null)
                         {
-                            Panel fmainPanel = currentFMain.GetPanel();
-
-                            if (fmainPanel != null)
-                            {
-                                F_SignPT f = new F_SignPT(idCustomer.ToString());
-                                f.TopLevel = false;
-                                f.Dock = DockStyle.Fill;
-                                fmainPanel.Controls.Add(f);
-                                f.Show();
-                                f.BringToFront();
-                            }
-                            else
-                            {
-                                MessageBox.Show("Lỗi.");
-                            }
+                            F_SignPT f = new F_SignPT(idCustomer.ToString());
+                            f.TopLevel = false;
+                            f.Dock = DockStyle.Fill;
+                            fmainPanel.Controls.Add(f);
+                            f.Show();
+                            f.BringToFront();
                         }
                         else
                         {
                             MessageBox.Show("Lỗi.");
                         }
                     }
-                    else if (dialogResult == DialogResult.No)
+                    else
                     {
-                        F_Main currentFMain = FindOpenF_Main();
+                        MessageBox.Show("Lỗi.");
+                    }
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    F_Main currentFMain = FindOpenF_Main();
 
-                        if (currentFMain != null)
+                    if (currentFMain != null)
+                    {
+                        Panel fmainPanel = currentFMain.GetPanel();
+
+                        if (fmainPanel != null)
                         {
-                            Panel fmainPanel = currentFMain.GetPanel();
-
-                            if (fmainPanel != null)
-                            {
-                                F_SignCustomer f = new F_SignCustomer();
-                                f.TopLevel = false;
-                                f.Dock = DockStyle.Fill;
-                                fmainPanel.Controls.Add(f);
-                                f.Show();
-                                f.BringToFront();
-                            }
-                            else
-                            {
-                                MessageBox.Show("Lỗi.");
-                            }
+                            F_SignCustomer f = new F_SignCustomer();
+                            f.TopLevel = false;
+                            f.Dock = DockStyle.Fill;
+                            fmainPanel.Controls.Add(f);
+                            f.Show();
+                            f.BringToFront();
                         }
                         else
                         {
                             MessageBox.Show("Lỗi.");
                         }
                     }
+                    else
+                    {
+                        MessageBox.Show("Lỗi.");
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Đăng ký khách hàng thất bại!");
-                }
-
-                
             }
             else
-                {
-                    MessageBox.Show("Thêm khách hàng thất bại.");
-                }
+            {
+                MessageBox.Show("Đăng ký khách hàng thất bại!");
             }
         }
+    }
 }

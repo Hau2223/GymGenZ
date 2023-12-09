@@ -36,29 +36,41 @@ namespace GymGenZ.PViews
             }
         }
 
-        private void btnSign_Click(object sender, EventArgs e)
+        private bool checkNull()
         {
-            CCustomer customer = new CCustomer("Data Source=C:\\data\\GYM.db");
-            Tuple<int, string, string, string, string, string> customerInfo = customer.GetCustomerInfo(int.Parse(idCus));
-            DateTime endDate = DateTime.Parse(customerInfo.Item6);
-
-            TimeSpan dayLife = endDate - currentDate;
             if (coutCBSession == 0 || checkCount == 0)
             {
                 MessageBox.Show("Vui lòng chọn đầy đủ thông tin!");
-                return;
+                return false;
             }
+            else
+            {
+                return true;
+            }
+        }
+
+        private void btnSign_Click(object sender, EventArgs e)
+        {
+            CCustomer customer = new CCustomer("Data Source=C:\\data\\GYM.db");
+            MessageBox.Show(idCus);
+            Tuple<int, string, string, string, string, string> customerInfo = customer.GetCustomerInfo(int.Parse(idCus));
+            DateTime endDate = DateTime.Parse(customerInfo.Item6);
+            MessageBox.Show(customerInfo.Item1.ToString());
+            lbName.Text = customerInfo.Item2;
+            TimeSpan dayLife = endDate - currentDate;
+           
             int session = int.Parse(cbSession.SelectedItem.ToString());
             int dayWithTrainer = (session / checkCount * 7);
+
+            if(checkNull() == false)
+            {
+                return;
+            }
 
             bool resultCheckDate = checkDateTrainer(dayLife.Days, dayWithTrainer);
             if(resultCheckDate == true)
             {
                 checkDateData = GetCheckedItems();
-                foreach (string data in checkDateData)
-                {
-                    MessageBox.Show(data);
-                }
                 string shiftCode = checkRadioShiftCode();
                 if(shiftCode == null)
                 {

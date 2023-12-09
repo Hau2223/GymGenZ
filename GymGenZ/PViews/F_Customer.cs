@@ -44,14 +44,21 @@ namespace GymGenZ.PViews
                 DataGridViewRow selectedRow = dataGripViewCustomer.SelectedRows[0];
                 idCustomer = selectedRow.Cells["CustomerID"].Value.ToString();
                 idTrainer = selectedRow.Cells["TrainerName"].Value.ToString();
-                if(idTrainer != "")
-                {
-                    btnSign_Trainer.Enabled = false;
-                }
-                else
-                {
-                    btnSign_Trainer.Enabled = true;
-                }
+                checkTrainer(idTrainer);
+            }
+        }
+
+        private bool checkTrainer(string idTrainer)
+        {
+            if (idTrainer != "")
+            {
+                btnSign_Trainer.Enabled = false;
+                return false;
+            }
+            else
+            {
+                btnSign_Trainer.Enabled = true;
+                return true;
             }
         }
 
@@ -82,8 +89,6 @@ namespace GymGenZ.PViews
 
                 if (fmainPanel != null)
                 {
-                    MessageBox.Show(fmainPanel.Name.ToString());
-
                     F_Schedule f = new F_Schedule();
                     f.TopLevel = false;
                     f.Dock = DockStyle.Fill;
@@ -121,14 +126,12 @@ namespace GymGenZ.PViews
                 idCustomer = selectedRow.Cells["CustomerID"].Value.ToString();
                 idTrainer = selectedRow.Cells["TrainerName"].Value.ToString();
                 F_Main currentFMain = FindOpenF_Main();
-
                 if (currentFMain != null)
                 {
                     Panel fmainPanel = currentFMain.GetPanel();
 
                     if (fmainPanel != null)
                     {
-                        MessageBox.Show(fmainPanel.Name.ToString());
                         F_SignPT f = new F_SignPT(idCustomer);
                         f.TopLevel = false;
                         f.Dock = DockStyle.Fill;
