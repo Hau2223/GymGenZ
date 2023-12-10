@@ -181,18 +181,20 @@ namespace GymGenZ.PViews
                 image = byteImage
             };
 
+            MessageBox.Show(newProduct.idCateProduct.ToString());
+
             bool resultAddProduct = productManager.addProduct(newProduct);
-            if(resultAddProduct)
+            if (resultAddProduct)
             {
                 clearItem();
                 loadDataToGrid();
-                MessageBox.Show("Thêm sản phẩm thành công!"); 
+                MessageBox.Show("Thêm sản phẩm thành công!");
             }
             else
             {
                 MessageBox.Show("Thêm sản phẩm thất bại!");
             }
-            
+
         }
 
         private void dataProduct_SelectionChanged(object sender, EventArgs e)
@@ -263,33 +265,52 @@ namespace GymGenZ.PViews
                 image = byteImage
             };
 
-            bool result = productManager.updateProduct(product);
-            if(result)
+            DialogResult dialogResult = MessageBox.Show("bạn có chắc chắn muốn cập nhật sản phẩm?", "Thông báo!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.Yes)
             {
-                clearItem();
-                loadDataToGrid();
-                MessageBox.Show("Cập nhật sản phẩm thành công!");
+                bool result = productManager.updateProduct(product);
+                if (result)
+                {
+                    clearItem();
+                    loadDataToGrid();
+                    MessageBox.Show("Cập nhật sản phẩm thành công!");
+                }
+                else
+                {
+                    MessageBox.Show("Cập nhật sản phẩm thất bại!");
+                }
             }
-            else
+            else if(dialogResult == DialogResult.No)
             {
-                MessageBox.Show("Cập nhật sản phẩm thất bại!");
+
             }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
            checkItemSelected();
-            bool result = productManager.deleteProduct(tbIdP.Text);
-            if(result)
+
+            DialogResult dialogResult = MessageBox.Show("bạn có chắc chắn muốn xóa sản phẩm?", "Thông báo!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.Yes)
             {
-                MessageBox.Show("Xóa sản phẩm thành công!");
-                loadDataToGrid();
-                clearItem();
+                bool result = productManager.deleteProduct(tbIdP.Text);
+                if (result)
+                {
+                    MessageBox.Show("Xóa sản phẩm thành công!");
+                    loadDataToGrid();
+                    clearItem();
+                }
+                else
+                {
+                    MessageBox.Show("Xóa sản phẩm thất bại!");
+                }
             }
-            else
+            else if (dialogResult == DialogResult.No)
             {
-                MessageBox.Show("Xóa sản phẩm thất bại!");
+
             }
+
+           
         }
     }
 }

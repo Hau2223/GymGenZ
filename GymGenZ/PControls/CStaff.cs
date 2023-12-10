@@ -245,7 +245,65 @@ namespace GymGenZ.PControls
                 }
             }
         }
+        public Tuple<int, string, int, int> getServiceTrainer(string idService)
+        {
+            Tuple<int, string, int, int> serviceInfo = null;
 
+            using (SQLiteConnection connection = new SQLiteConnection(_conn))
+            {
+                string query = $"SELECT * FROM PTrainerService WHERE id = {idService}";
+
+                using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            int id = reader.GetInt32(0);
+                            string name = reader.GetString(1);
+                            int time = reader.GetInt32(2);
+                            int price = reader.GetInt32(3);
+
+                            serviceInfo = Tuple.Create(id, name, time, price);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Service not found.");
+                        }
+                    }
+                }
+            }
+            return serviceInfo;
+        }
+
+        public string getNameStaff(int idStaff)
+        {
+            string nameStaff = null;
+
+            using (SQLiteConnection connection = new SQLiteConnection(_conn))
+            {
+                string query = $"SELECT * FROM Staff WHERE id = {idStaff}";
+
+                using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                {
+                    connection.Open();
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+
+                            string name = reader.GetString(1);
+                            nameStaff = name;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Service not found.");
+                        }
+                    }
+                }
+            }
+            return nameStaff;
+        }
 
     }
 }

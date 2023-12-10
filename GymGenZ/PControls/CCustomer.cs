@@ -144,7 +144,7 @@ namespace GymGenZ.PControls
             return id;
         }
         
-        public bool SignPTrainer(string idCustomer, string idStaff, List<string> lstDate, string shiftCode, int duration)
+        public bool SignPTrainer(string idCustomer, string idStaff, List<string> lstDate, string shiftCode, int idService, string dateStart,string dateEnd)
         {
             try
             {
@@ -153,17 +153,18 @@ namespace GymGenZ.PControls
                 {
                     foreach (string date in lstDate)
                     {
-                        string insertQuery = "INSERT INTO TrainingSessions (trainerID, customerID, date, shiftCode, duration) " +
-                                             "VALUES (@TrainerID, @CustomerID, @Date, @ShiftCode, @Duration)";
+                        string insertQuery = "INSERT INTO TrainingSessions (trainerID, customerID, date, shiftCode, idPTrainerService, dateStart, dateEnd) " +
+                                             "VALUES (@TrainerID, @CustomerID, @Date, @ShiftCode, @idService, @dateStart, @dateEnd)";
                         using (SQLiteCommand insertPTrainer = new SQLiteCommand(insertQuery, _conn))
                         {
                             insertPTrainer.Parameters.AddWithValue("@TrainerID", idStaff);
                             insertPTrainer.Parameters.AddWithValue("@CustomerID", idCustomer);
                             insertPTrainer.Parameters.AddWithValue("@Date", date);
                             insertPTrainer.Parameters.AddWithValue("@ShiftCode", shiftCode);
-                            insertPTrainer.Parameters.AddWithValue("@Duration", duration);
+                            insertPTrainer.Parameters.AddWithValue("@idService", idService);
+                            insertPTrainer.Parameters.AddWithValue("@dateStart", dateStart);
+                            insertPTrainer.Parameters.AddWithValue("@dateEnd", dateEnd);
                             insertPTrainer.ExecuteNonQuery();
-       
                         }
                     }
                     return true;
@@ -201,6 +202,37 @@ namespace GymGenZ.PControls
 
                         int rowsAffected = insertCmd.ExecuteNonQuery();
                         return rowsAffected > 0;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Error in PaymentPackage: {e.Message}");
+                return false;
+            }
+        }
+
+        public bool PaymentTrainer(int idCustomer, int idTrainer, int idService, string paymentMethod)
+        {
+            DateTime currentDate = DateTime.Now;
+            try
+            {
+                using (SQLiteConnection con = new SQLiteConnection(_connectionString))
+                {
+                    con.Open();
+
+                    string insertQuery = "INSERT INTO PaymentTrainer (idCustomer, idTrainer, idService, paymentMethod, paymentDay) " +
+                                         "VALUES (@idCustomer, @idTrainer, @idService, @paymentMethod, @paymentDay)";
+
+                    using (SQLiteCommand insertCmd = new SQLiteCommand(insertQuery, con))
+                    {
+                        insertCmd.Parameters.AddWithValue("@idCustomer", idCustomer);
+                        insertCmd.Parameters.AddWithValue("@idTrainer", idTrainer);
+                        insertCmd.Parameters.AddWithValue("@idService", idService);
+                        insertCmd.Parameters.AddWithValue("@paymentMethod", paymentMethod);
+                        insertCmd.Parameters.AddWithValue("@paymentDay", currentDate.ToString());
+                        int rowsAffected = insertCmd.ExecuteNonQuery();
+                        return true;
                     }
                 }
             }

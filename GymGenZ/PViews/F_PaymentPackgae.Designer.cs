@@ -1,6 +1,6 @@
 ﻿namespace GymGenZ.PViews
 {
-    partial class F_Payment
+    partial class F_PaymentPackgae
     {
         /// <summary>
         /// Required designer variable.

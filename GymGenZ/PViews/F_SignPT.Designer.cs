@@ -44,8 +44,8 @@
             this.cbSession = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.lbName = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataStaff)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -213,11 +213,6 @@
             // cbSession
             // 
             this.cbSession.FormattingEnabled = true;
-            this.cbSession.Items.AddRange(new object[] {
-            "12",
-            "24",
-            "36",
-            "48"});
             this.cbSession.Location = new System.Drawing.Point(6, 19);
             this.cbSession.Name = "cbSession";
             this.cbSession.Size = new System.Drawing.Size(121, 21);
@@ -243,16 +238,6 @@
             this.panel1.Size = new System.Drawing.Size(512, 32);
             this.panel1.TabIndex = 6;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label1.Location = new System.Drawing.Point(5, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Tên khách hàng:";
-            // 
             // lbName
             // 
             this.lbName.AutoSize = true;
@@ -262,6 +247,16 @@
             this.lbName.Size = new System.Drawing.Size(45, 16);
             this.lbName.TabIndex = 1;
             this.lbName.Text = "name";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label1.Location = new System.Drawing.Point(5, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(121, 16);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Tên khách hàng:";
             // 
             // F_SignPT
             // 

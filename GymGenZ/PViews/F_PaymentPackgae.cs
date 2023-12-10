@@ -15,7 +15,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace GymGenZ.PViews
 {
-    public partial class F_Payment : Form
+    public partial class F_PaymentPackgae : Form
     {
         CCustomer customerManager = new CCustomer("Data Source=C:\\data\\GYM.db");
         CPayment cPayment = new CPayment("Data Source=C:\\data\\GYM.db");
@@ -24,14 +24,14 @@ namespace GymGenZ.PViews
         string _name, _numberPhone, _CCCD, _address, _gender, _idPackage;
         DateTime currentDate = DateTime.Now;
 
-        public F_Payment()
+        public F_PaymentPackgae()
         {
             InitializeComponent();
         }
 
       
 
-        public F_Payment(string name, string numberPhone, string CCCD, string address, string gender, string idPakage)
+        public F_PaymentPackgae(string name, string numberPhone, string CCCD, string address, string gender, string idPakage)
         {
             InitializeComponent();
 
@@ -112,10 +112,27 @@ namespace GymGenZ.PViews
             return null;
         }
 
+        private bool checkPaymentMethod(string method)
+        {
+            if(method == "err")
+            {
+                MessageBox.Show("Vui lòng chọn hình thức thanh toán!");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
         private void btnPayment_Click(object sender, EventArgs e)
         {
             int amount = int.Parse(tbTotalPrice.Text);
             string paymentMethod = getMethodPayment();
+            if(checkPaymentMethod(paymentMethod) == false)
+            {
+                return;
+            }
             bool result = customerManager.signCustomer(_name, _numberPhone, _CCCD, int.Parse(_idPackage), _address, _gender, paymentMethod, amount);
             if (result)
             {

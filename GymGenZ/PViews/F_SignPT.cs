@@ -2,7 +2,9 @@
 using GymGenZ.PModels;
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace GymGenZ.PViews
 {
@@ -14,6 +16,8 @@ namespace GymGenZ.PViews
         DateTime currentDate = DateTime.Now;
         int checkCount = 0;
         int coutCBSession = 0;
+        CCustomer customerManager = new CCustomer("Data Source=C:\\data\\GYM.db");
+        CPTrainerService serviceManager = new CPTrainerService("Data Source=C:\\data\\GYM.db");
 
 
         public F_SignPT(string idCustomer)
@@ -21,7 +25,30 @@ namespace GymGenZ.PViews
             InitializeComponent();
             checkDateData = new List<string>();
             LoadDataGridView();
+            loadDataSession();
             idCus = idCustomer;
+        }
+
+        private void loadDataSession()
+        {
+            try
+            {
+                List<MPTrainerService> lstService = serviceManager.getAllPTrainerService();
+                if (lstService.Count > 0)
+                {
+                    cbSession.DisplayMember = "name";
+                    cbSession.ValueMember = "id";
+                    cbSession.DataSource = lstService;
+                }
+                else
+                {
+                    MessageBox.Show("Không có gói service nào được tìm thấy!.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
         }
 
         private bool checkDateTrainer(int datelife, int dateWithTrainer)
@@ -38,7 +65,7 @@ namespace GymGenZ.PViews
 
         private bool checkNull()
         {
-            if (coutCBSession == 0 || checkCount == 0)
+            if (cbSession.SelectedItem == null || checkCount == 0 || checkRadioShiftCode() == "" || idStaff == null)
             {
                 MessageBox.Show("Vui lòng chọn đầy đủ thông tin!");
                 return false;
@@ -51,53 +78,66 @@ namespace GymGenZ.PViews
 
         private void btnSign_Click(object sender, EventArgs e)
         {
-            CCustomer customer = new CCustomer("Data Source=C:\\data\\GYM.db");
-            MessageBox.Show(idCus);
-            Tuple<int, string, string, string, string, string> customerInfo = customer.GetCustomerInfo(int.Parse(idCus));
+        
+            Tuple<int, string, string, string, string, string> customerInfo = customerManager.GetCustomerInfo(int.Parse(idCus));
             DateTime endDate = DateTime.Parse(customerInfo.Item6);
-            MessageBox.Show(customerInfo.Item1.ToString());
             lbName.Text = customerInfo.Item2;
             TimeSpan dayLife = endDate - currentDate;
-           
-            int session = int.Parse(cbSession.SelectedItem.ToString());
-            int dayWithTrainer = (session / checkCount * 7);
-
-            if(checkNull() == false)
+            if (checkNull() == false)
             {
                 return;
             }
+            int idService = int.Parse(cbSession.SelectedValue.ToString());
+            Tuple<int, string, int, int> serviceInfo = serviceManager.getServiceTrainer(idService.ToString());
+            int session = serviceInfo.Item3;
+            int dayWithTrainer = (session / checkCount * 7);
 
             bool resultCheckDate = checkDateTrainer(dayLife.Days, dayWithTrainer);
             if(resultCheckDate == true)
             {
-                checkDateData = GetCheckedItems();
                 string shiftCode = checkRadioShiftCode();
-                if(shiftCode == null)
-                {
-                    MessageBox.Show("Vui lòng chọn đầy đủ thông tin!");
-                    return;
-                }
-                string idCustomer = idCus;
-                int duration = session;
+                F_Main currentFMain = FindOpenF_Main();
 
-                CCustomer customerManager = new CCustomer("Data Source=C:\\data\\GYM.db");
-                bool result = customerManager.SignPTrainer(idCustomer, idStaff, checkDateData, shiftCode, duration);
-
-                if (result)
+                if (currentFMain != null)
                 {
-                    MessageBox.Show("Đăng ký thành công!!");
+                    Panel fmainPanel = currentFMain.GetPanel();
+
+                    if (fmainPanel != null)
+                    {
+                        F_PaymentService f = new F_PaymentService(int.Parse(idCus), int.Parse(idStaff), idService, checkDateData, shiftCode);
+                        f.TopLevel = false;
+                        f.Dock = DockStyle.Fill;
+                        fmainPanel.Controls.Add(f);
+                        f.Show();
+                        f.BringToFront();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Panel is null or not initialized in F_Main.");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Đăng ký không thành công!");
-                };
+                    MessageBox.Show("F_Main is not open or disposed.");
+                }
+
             }
             else
             {
                 MessageBox.Show("Thời gian tập không hợp lệ!");
             }
+        }
 
-            
+        private F_Main FindOpenF_Main()
+        {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form is F_Main fMain && !fMain.IsDisposed)
+                {
+                    return fMain;
+                }
+            }
+            return null;
         }
 
         private List<string> GetCheckedItems()

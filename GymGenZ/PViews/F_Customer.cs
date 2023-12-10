@@ -21,7 +21,8 @@ namespace GymGenZ.PViews
         private List<MCustomer> _customers;
         private String idCustomer = null;
         private string idTrainer = null;
- 
+        DateTime currentDate = DateTime.Now;
+
         public F_Customer()
         {
             InitializeComponent();
@@ -46,6 +47,22 @@ namespace GymGenZ.PViews
                 idTrainer = selectedRow.Cells["TrainerName"].Value.ToString();
                 checkTrainer(idTrainer);
             }
+        }
+
+        private bool checkTimeCustomer()
+        {
+            DataGridViewRow selectedRow = dataGripViewCustomer.SelectedRows[0];
+            string dateEnd = selectedRow.Cells["end"].Value.ToString();
+            DateTime endDate = DateTime.Parse(dateEnd);
+            TimeSpan dayLife = endDate - currentDate;
+            
+
+            return true;
+        }
+
+        private void btnUpdatePackage_Click(object sender, EventArgs e)
+        {
+            checkTimeCustomer();
         }
 
         private bool checkTrainer(string idTrainer)
@@ -150,5 +167,7 @@ namespace GymGenZ.PViews
                 }
             }
         }
+
+       
     }
 }
