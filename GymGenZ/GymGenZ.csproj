@@ -72,6 +72,7 @@
     <Compile Include="PControls\CPackage.cs" />
     <Compile Include="PControls\CDiscount.cs" />
     <Compile Include="PControls\CProduct.cs" />
+    <Compile Include="PControls\CPTrainerService.cs" />
     <Compile Include="PControls\CStaff.cs" />
     <Compile Include="PModels\MCateProduct.cs" />
     <Compile Include="PModels\MCustomer.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="PModels\MProduct.cs" />
     <Compile Include="PModels\MStaff.cs" />
     <Compile Include="PModels\MPackage.cs" />
+    <Compile Include="PModels\MPTrainerService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PViews\F_Customer.cs">
@@ -139,11 +141,17 @@
     <Compile Include="PViews\F_ManagerStaff.Designer.cs">
       <DependentUpon>F_ManagerStaff.cs</DependentUpon>
     </Compile>
-    <Compile Include="PViews\F_Payment.cs">
+    <Compile Include="PViews\F_PaymentPackgae.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PViews\F_Payment.Designer.cs">
-      <DependentUpon>F_Payment.cs</DependentUpon>
+    <Compile Include="PViews\F_PaymentPackgae.Designer.cs">
+      <DependentUpon>F_PaymentPackgae.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PViews\F_PaymentService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PViews\F_PaymentService.Designer.cs">
+      <DependentUpon>F_PaymentService.cs</DependentUpon>
     </Compile>
     <Compile Include="PViews\F_Schedule.cs">
       <SubType>Form</SubType>
@@ -206,8 +214,11 @@
     <EmbeddedResource Include="PViews\F_ManagerStaff.resx">
       <DependentUpon>F_ManagerStaff.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PViews\F_Payment.resx">
-      <DependentUpon>F_Payment.cs</DependentUpon>
+    <EmbeddedResource Include="PViews\F_PaymentPackgae.resx">
+      <DependentUpon>F_PaymentPackgae.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PViews\F_PaymentService.resx">
+      <DependentUpon>F_PaymentService.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PViews\F_Schedule.resx">
       <DependentUpon>F_Schedule.cs</DependentUpon>

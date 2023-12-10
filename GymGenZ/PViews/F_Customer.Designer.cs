@@ -34,6 +34,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.btnSign_Trainer = new System.Windows.Forms.Button();
+            this.btnUpdatePackage = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGripViewCustomer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -109,12 +110,27 @@
             this.btnSign_Trainer.UseVisualStyleBackColor = false;
             this.btnSign_Trainer.Click += new System.EventHandler(this.btnSign_Trainer_Click);
             // 
+            // btnUpdatePackage
+            // 
+            this.btnUpdatePackage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(19)))), ((int)(((byte)(99)))));
+            this.btnUpdatePackage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdatePackage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnUpdatePackage.ForeColor = System.Drawing.Color.White;
+            this.btnUpdatePackage.Location = new System.Drawing.Point(553, 504);
+            this.btnUpdatePackage.Name = "btnUpdatePackage";
+            this.btnUpdatePackage.Size = new System.Drawing.Size(208, 38);
+            this.btnUpdatePackage.TabIndex = 8;
+            this.btnUpdatePackage.Text = "Đăng ký gói tập";
+            this.btnUpdatePackage.UseVisualStyleBackColor = false;
+            this.btnUpdatePackage.Click += new System.EventHandler(this.btnUpdatePackage_Click);
+            // 
             // F_Customer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1153, 607);
+            this.Controls.Add(this.btnUpdatePackage);
             this.Controls.Add(this.btnSign_Trainer);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.pictureBox1);
@@ -141,5 +157,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnSign_Trainer;
+        private System.Windows.Forms.Button btnUpdatePackage;
     }
 }

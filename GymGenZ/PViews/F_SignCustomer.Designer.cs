@@ -152,6 +152,7 @@
             this.cbPakage.Name = "cbPakage";
             this.cbPakage.Size = new System.Drawing.Size(371, 21);
             this.cbPakage.TabIndex = 1;
+            this.cbPakage.SelectedIndexChanged += new System.EventHandler(this.cbPakage_SelectedIndexChanged);
             // 
             // label5
             // 
