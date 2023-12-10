@@ -27,14 +27,27 @@ namespace GymGenZ.PViews
         }
         private void loadDataToGrid()
         {
+            _staff = _dataStaff.LoadAllStaff();
+            dtgvStaff.DataSource = _staff;
+            if (tbRollStaff.Text == "1")
+            {
+                tbPassStaff.ReadOnly = true;
+            }
+
+
+        }
+        private void searchStaff()
+        {
             string searchText = tbFindStaff.Text.Trim();
             _staff = _dataStaff.SearchStaff(searchText);
             dtgvStaff.DataSource = _staff;
-            
+
         }
+
         private void F_ManagerStaff_Load(object sender, EventArgs e)
         {
             loadDataToGrid();
+           
         }
         private void dtgvStaff_SelectionChanged(object sender, EventArgs e)
         {
@@ -52,6 +65,15 @@ namespace GymGenZ.PViews
                     tbAccStaff.Text = selectedStaff.username;
                     tbRollStaff.Text = selectedStaff.roll;
                     tbCCCDStaff.Text = selectedStaff.idCard;
+                    if (selectedStaff.roll == "1")
+                    {
+                        tbPassStaff.Text = "4";
+                    }
+                    else
+                    {
+                        tbPassStaff.Text = string.Empty;
+                    }
+               
                     if(selectedStaff.gender == "Nam")
                     {
                         cbGDMaleStaff.Checked = true;
@@ -75,7 +97,7 @@ namespace GymGenZ.PViews
         }
         private void ptbFindStaff_Click(object sender, EventArgs e)
         {
-            loadDataToGrid();
+            searchStaff();
         }
 
         private void dtgvStaff_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -97,8 +119,7 @@ namespace GymGenZ.PViews
                 birth = dtpkBirthStaff.Value.ToString("yyyy-MM-dd"),
                 address = tbAddressStaff.Text
             };
-            if (string.IsNullOrWhiteSpace(newStaff.username) || string.IsNullOrWhiteSpace(newStaff.password) ||
-                string.IsNullOrWhiteSpace(newStaff.roll) || string.IsNullOrWhiteSpace(newStaff.fullname) ||
+            if (string.IsNullOrWhiteSpace(newStaff.roll) || string.IsNullOrWhiteSpace(newStaff.fullname) ||
                 string.IsNullOrWhiteSpace(newStaff.numberPhone) || string.IsNullOrWhiteSpace(newStaff.idCard))
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin!!!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -130,7 +151,7 @@ namespace GymGenZ.PViews
                 if (addedSuccessfully){
                     MessageBox.Show("Thêm nhân viên thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     loadDataToGrid();
-                    tbPassStaff.Text = string.Empty;
+                    ClearFields();
                 }
                 else{
                     // Xử lý khi thêm không thành công
@@ -158,6 +179,7 @@ namespace GymGenZ.PViews
                 };
                 if (!string.IsNullOrEmpty(_idStaff))
                 {
+
                     bool updatedSuccessfully = _dataStaff.UpdateStaff(updatedStaff);
                     if (updatedSuccessfully)
                     {

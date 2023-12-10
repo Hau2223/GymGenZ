@@ -86,7 +86,7 @@
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(20, 121);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(496, 368);
+            this.listView1.Size = new System.Drawing.Size(729, 368);
             this.listView1.TabIndex = 13;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -111,7 +111,7 @@
             // 
             this.panel10.Controls.Add(this.pictureBox2);
             this.panel10.Controls.Add(this.textBox9);
-            this.panel10.Location = new System.Drawing.Point(709, 53);
+            this.panel10.Location = new System.Drawing.Point(1129, 37);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(288, 55);
             this.panel10.TabIndex = 14;
@@ -143,7 +143,7 @@
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(539, 185);
+            this.panel1.Location = new System.Drawing.Point(949, 187);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(468, 251);
             this.panel1.TabIndex = 15;
@@ -255,7 +255,7 @@
             this.panel9.Controls.Add(this.button2);
             this.panel9.Controls.Add(this.button1);
             this.panel9.Controls.Add(this.btn_Schedule);
-            this.panel9.Location = new System.Drawing.Point(361, 495);
+            this.panel9.Location = new System.Drawing.Point(368, 513);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(646, 56);
             this.panel9.TabIndex = 16;
@@ -306,7 +306,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1044, 604);
+            this.ClientSize = new System.Drawing.Size(1537, 747);
             this.Controls.Add(this.panel9);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel10);
