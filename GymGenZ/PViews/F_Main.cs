@@ -90,6 +90,9 @@ namespace GymGenZ.PViews
             btnPakage.BackColor = Color.FromArgb(26, 19, 99);
             btnPakage.ForeColor = Color.White;
 
+            btnSales.BackColor = Color.FromArgb(26, 19, 99);
+            btnSales.ForeColor = Color.White;
+
 
 
         }
@@ -116,6 +119,9 @@ namespace GymGenZ.PViews
 
             btnPakage.BackColor = Color.FromArgb(26, 19, 99);
             btnPakage.ForeColor = Color.White;
+
+            btnSales.BackColor = Color.FromArgb(26, 19, 99);
+            btnSales.ForeColor = Color.White;
 
             F_SignCustomer f = new F_SignCustomer();
             f.TopLevel = false;
@@ -148,6 +154,10 @@ namespace GymGenZ.PViews
 
             btnPakage.BackColor = Color.FromArgb(26, 19, 99);
             btnPakage.ForeColor = Color.White;
+
+            btnSales.BackColor = Color.FromArgb(26, 19, 99);
+            btnSales.ForeColor = Color.White;
+
             F_ManagerStaff f = new F_ManagerStaff();
             f.TopLevel = false;
             f.Dock = DockStyle.Fill;
@@ -178,6 +188,10 @@ namespace GymGenZ.PViews
 
             btnPakage.BackColor = Color.FromArgb(26, 19, 99);
             btnPakage.ForeColor = Color.White;
+
+            btnSales.BackColor = Color.FromArgb(26, 19, 99);
+            btnSales.ForeColor = Color.White;
+
             F_Customer f = new F_Customer();
             f.TopLevel = false;
             f.Dock = DockStyle.Fill;
@@ -208,6 +222,9 @@ namespace GymGenZ.PViews
 
             btnPakage.BackColor = Color.FromArgb(26, 19, 99);
             btnPakage.ForeColor = Color.White;
+            btnSales.BackColor = Color.FromArgb(26, 19, 99);
+            btnSales.ForeColor = Color.White;
+
             F_ManagerProduct f = new F_ManagerProduct();
             f.TopLevel = false;
             f.Dock = DockStyle.Fill;
@@ -238,6 +255,10 @@ namespace GymGenZ.PViews
 
             btnPakage.BackColor = Color.FromArgb(26, 19, 99);
             btnPakage.ForeColor = Color.White;
+
+            btnSales.BackColor = Color.FromArgb(26, 19, 99);
+            btnSales.ForeColor = Color.White;
+
             F_ManagerPromotion f = new F_ManagerPromotion();
             f.TopLevel = false;
             f.Dock = DockStyle.Fill;
@@ -268,6 +289,9 @@ namespace GymGenZ.PViews
 
             btnDiscout.BackColor = Color.FromArgb(26, 19, 99);
             btnDiscout.ForeColor = Color.White;
+
+            btnSales.BackColor = Color.FromArgb(26, 19, 99);
+            btnSales.ForeColor = Color.White;
         }
 
         private void btnPakage_Click_1(object sender, EventArgs e)
@@ -292,6 +316,8 @@ namespace GymGenZ.PViews
 
             btnDiscout.BackColor = Color.FromArgb(26, 19, 99);
             btnDiscout.ForeColor = Color.White;
+            btnSales.BackColor = Color.FromArgb(26, 19, 99);
+            btnSales.ForeColor = Color.White;
         }
 
         private void btnSignout_Click(object sender, EventArgs e)
@@ -309,6 +335,138 @@ namespace GymGenZ.PViews
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
+        }
+
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnSales_Click(object sender, EventArgs e)
+        {
+            btnPakage.ForeColor = Color.White;
+            btnPakage.BackColor = Color.FromArgb(26, 19, 99);
+
+            btnMain.BackColor = Color.FromArgb(26, 19, 99);
+            btnMain.ForeColor = Color.White;
+
+            btnAddCus.BackColor = Color.FromArgb(26, 19, 99);
+            btnAddCus.ForeColor = Color.White;
+
+            btnStaff.BackColor = Color.FromArgb(26, 19, 99);
+            btnStaff.ForeColor = Color.White;
+
+            btnDiscout.BackColor = Color.FromArgb(26, 19, 99);
+            btnDiscout.ForeColor = Color.White;
+
+            btnProduct.BackColor = Color.FromArgb(26, 19, 99);
+            btnProduct.ForeColor = Color.White;
+
+            btnDiscout.BackColor = Color.FromArgb(26, 19, 99);
+            btnDiscout.ForeColor = Color.White;
+
+
+            btnSales.ForeColor = Color.FromArgb(26, 19, 99);
+            btnSales.BackColor = Color.White;
+
+
+            F_SalesManager f = new F_SalesManager();
+            f.TopLevel = false;
+            f.Dock = DockStyle.Fill;
+            fMain.Controls.Add(f);
+            f.Show();
+            f.BringToFront();
+
+        }
+
+        private void btnAddCus_Click_1(object sender, EventArgs e)
+        {
+            F_ManagerStaff f = new F_ManagerStaff();
+            f.TopLevel = false;
+            f.Dock = DockStyle.Fill;
+            fMain.Controls.Add(f);
+            f.Show();
+            f.BringToFront();
+        }
+
+        private void btnSales_Click_1(object sender, EventArgs e)
+        {
+            btnPakage.ForeColor = Color.White;
+            btnPakage.BackColor = Color.FromArgb(26, 19, 99);
+
+            btnMain.BackColor = Color.FromArgb(26, 19, 99);
+            btnMain.ForeColor = Color.White;
+
+            btnAddCus.BackColor = Color.FromArgb(26, 19, 99);
+            btnAddCus.ForeColor = Color.White;
+
+            btnStaff.BackColor = Color.FromArgb(26, 19, 99);
+            btnStaff.ForeColor = Color.White;
+
+            btnDiscout.BackColor = Color.FromArgb(26, 19, 99);
+            btnDiscout.ForeColor = Color.White;
+
+            btnProduct.BackColor = Color.FromArgb(26, 19, 99);
+            btnProduct.ForeColor = Color.White;
+
+            btnDiscout.BackColor = Color.FromArgb(26, 19, 99);
+            btnDiscout.ForeColor = Color.White;
+
+
+            btnSales.ForeColor = Color.FromArgb(26, 19, 99);
+            btnSales.BackColor = Color.White;
+
+
+            F_SalesManager f = new F_SalesManager();
+            f.TopLevel = false;
+            f.Dock = DockStyle.Fill;
+            fMain.Controls.Add(f);
+            f.Show();
+            f.BringToFront();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+
+
+
+            btnMain.BackColor = Color.FromArgb(26, 19, 99);
+            btnMain.ForeColor = Color.White;
+
+            btnAddCus.BackColor = Color.FromArgb(26, 19, 99);
+            btnAddCus.ForeColor = Color.White;
+
+            btnStaff.BackColor = Color.FromArgb(26, 19, 99);
+            btnStaff.ForeColor = Color.White;
+
+            btnDiscout.BackColor = Color.FromArgb(26, 19, 99);
+            btnDiscout.ForeColor = Color.White;
+
+            btnProduct.BackColor = Color.FromArgb(26, 19, 99);
+            btnProduct.ForeColor = Color.White;
+
+            btnPakage.BackColor = Color.FromArgb(26, 19, 99);
+            btnPakage.ForeColor = Color.White;
+
+            btnCustomer.ForeColor = Color.White;
+            btnCustomer.BackColor = Color.FromArgb(26, 19, 99);
+
+            btnSales.BackColor = Color.FromArgb(26, 19, 99);
+            btnSales.ForeColor = Color.White;
+
+            F_CheckIn f = new F_CheckIn();
+            f.TopLevel = false;
+            f.Dock = DockStyle.Fill;
+            fMain.Controls.Add(f);
+            f.Show();
+            f.BringToFront();
+        }
+
+        private void pictureBox3_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

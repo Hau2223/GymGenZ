@@ -14,6 +14,7 @@ namespace GymGenZ.PModels
         public string CCCD { get; set; }
         public string start { get; set; }
         public string end { get; set; }
+        public string soBuoiTap { get; set; }
         public string address { get; set; }
         public string gender { get; set; }
         public string trainerName { get; set; }

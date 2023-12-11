@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace GymGenZ.PControls
 {
@@ -130,6 +131,59 @@ namespace GymGenZ.PControls
             }
 
             return productList;
+        }
+
+
+        public List<MProduct> SearchCustomers(string searchText)
+        {
+            List<MProduct> products = new List<MProduct>();
+
+            using (SQLiteConnection con = new SQLiteConnection(_conn))
+            {
+         
+
+                string query = @"SELECT DISTINCT
+                            c.id AS ID,
+                            c.nameProduct AS NameProduct,
+                            c.count AS Count,
+                            c.price AS Price,
+                            c.image as ImageProduct,
+                            p.id AS CateProduct
+                          
+                        FROM Product c
+                        LEFT JOIN CategoryProduct p ON c.idCateProduct = p.id
+                       
+                        WHERE c.nameProduct LIKE @searchText";
+
+                using (SQLiteCommand cmd = new SQLiteCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@searchText", $"%{searchText}%");
+
+                    using (SQLiteDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            MProduct product = new MProduct
+                            {
+                                id = int.Parse(reader["ID"].ToString()),
+                                nameProduct = reader["NameProduct"].ToString(),
+                                count = int.Parse(reader["Count"].ToString()),
+                                price = int.Parse(reader["Price"].ToString()),
+                                idCateProduct = int.Parse(reader["CateProduct"].ToString()),
+                                image = reader["ImageProduct"].ToString()
+
+
+
+
+                            };
+
+                            products.Add(product);
+                        }
+                    }
+                }
+            }
+
+            return products;
         }
     }
 }
