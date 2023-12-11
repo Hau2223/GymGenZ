@@ -55,11 +55,19 @@ namespace GymGenZ.PViews
         {
             if(byteString != null)
             {
-                byte[] imgBytes = Convert.FromBase64String(byteString);
-                MemoryStream ms = new MemoryStream(imgBytes, 0, imgBytes.Length);
-                ms.Write(imgBytes, 0, imgBytes.Length);
-                Image image = Image.FromStream(ms, true);
-                return image;
+                try
+                {
+                    byte[] imgBytes = Convert.FromBase64String(byteString);
+                    MemoryStream ms = new MemoryStream(imgBytes, 0, imgBytes.Length);
+                    ms.Write(imgBytes, 0, imgBytes.Length);
+                    Image image = Image.FromStream(ms, true);
+                    return image;
+                }catch (Exception ex)
+                {
+                    MessageBox.Show("Định dạng ảnh không hợp lệ!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return null;
+                }
+                
             }
             else
             {
@@ -116,7 +124,7 @@ namespace GymGenZ.PViews
         {
             if (tbNameP.Text == "" || tbPriceP.Text == "" || tbTotalP.Text == "" || cbCate.SelectedValue.ToString() == "" || picImageP.Image == null)
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!!");
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             else
@@ -135,13 +143,13 @@ namespace GymGenZ.PViews
                 }
                 else
                 {
-                    MessageBox.Show("Số lượng kho phải là một số nguyên!");
+                    MessageBox.Show("Số lượng kho phải là một số nguyên!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
             }
             else
             {
-                MessageBox.Show("Giá phải là một số nguyên!");
+                MessageBox.Show("Giá phải là một số nguyên!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
@@ -150,7 +158,7 @@ namespace GymGenZ.PViews
         {
             if (tbIdP.Text == "")
             {
-                MessageBox.Show("Vui lòng chọn sản phẩm!");
+                MessageBox.Show("Vui lòng chọn sản phẩm!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             else
@@ -188,11 +196,11 @@ namespace GymGenZ.PViews
             {
                 clearItem();
                 loadDataToGrid();
-                MessageBox.Show("Thêm sản phẩm thành công!");
+                MessageBox.Show("Thêm sản phẩm thành công!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("Thêm sản phẩm thất bại!");
+                MessageBox.Show("Thêm sản phẩm thất bại!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -265,7 +273,7 @@ namespace GymGenZ.PViews
                 image = byteImage
             };
 
-            DialogResult dialogResult = MessageBox.Show("bạn có chắc chắn muốn cập nhật sản phẩm?", "Thông báo!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn cập nhật sản phẩm?", "Thông báo!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialogResult == DialogResult.Yes)
             {
                 bool result = productManager.updateProduct(product);
@@ -273,11 +281,11 @@ namespace GymGenZ.PViews
                 {
                     clearItem();
                     loadDataToGrid();
-                    MessageBox.Show("Cập nhật sản phẩm thành công!");
+                    MessageBox.Show("Cập nhật sản phẩm thành công!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Cập nhật sản phẩm thất bại!");
+                    MessageBox.Show("Cập nhật sản phẩm thất bại!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else if(dialogResult == DialogResult.No)
@@ -296,13 +304,13 @@ namespace GymGenZ.PViews
                 bool result = productManager.deleteProduct(tbIdP.Text);
                 if (result)
                 {
-                    MessageBox.Show("Xóa sản phẩm thành công!");
+                    MessageBox.Show("Xóa sản phẩm thành công!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     loadDataToGrid();
                     clearItem();
                 }
                 else
                 {
-                    MessageBox.Show("Xóa sản phẩm thất bại!");
+                    MessageBox.Show("Xóa sản phẩm thất bại!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else if (dialogResult == DialogResult.No)

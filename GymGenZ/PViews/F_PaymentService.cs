@@ -111,7 +111,7 @@ namespace GymGenZ.PViews
         {
             if(method == "err")
             {
-                MessageBox.Show("Vui lòng chọn hình thức thanh toán!");
+                MessageBox.Show("Vui lòng chọn hình thức thanh toán!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             else
@@ -135,7 +135,7 @@ namespace GymGenZ.PViews
                     bool resultPayment = customerManager.PaymentTrainer(_idCustomer, _idTrainer, _idService, paymentMethod);
                     if (resultPayment)
                     {
-                        MessageBox.Show("Đăng ký huấn luyện viên thành công!!");
+                        MessageBox.Show("Đăng ký huấn luyện viên thành công!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         F_Main currentFMain = FindOpenF_Main();
 
                         if (currentFMain != null)
@@ -164,7 +164,7 @@ namespace GymGenZ.PViews
                 }
                 else
                 {
-                    MessageBox.Show("Đăng ký không thành công!");
+                    MessageBox.Show("Đăng ký không thành công!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 };
             }
             else if(paymentMethod == "Thanh toán qua thẻ")

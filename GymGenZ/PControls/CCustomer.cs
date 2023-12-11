@@ -242,6 +242,46 @@ namespace GymGenZ.PControls
                 return false;
             }
         }
+        public bool CheckPhoneExist(string phone)
+        {
+            using (SQLiteConnection con = new SQLiteConnection(_conn))
+            {
+                con.Open();
+
+                string query = "SELECT COUNT(*) FROM Customer WHERE phone = @phone";
+
+                using (SQLiteCommand cmd = new SQLiteCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@phone", phone);
+
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    return count > 0;
+                }
+            }
+        }
+
+        public bool CheckCCCDExist(string cccd)
+        {
+            using (SQLiteConnection con = new SQLiteConnection(_conn))
+            {
+                con.Open();
+
+                string query = "SELECT COUNT(*) FROM Customer WHERE cccd = @cccd";
+
+                using (SQLiteCommand cmd = new SQLiteCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@cccd", cccd);
+
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    return count > 0;
+                }
+            }
+        }
+
+
+
 
 
         public bool insertCustomer(string name, string phone, string cccd, string packageID, string address, string gender)

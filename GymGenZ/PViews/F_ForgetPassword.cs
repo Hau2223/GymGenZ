@@ -25,13 +25,13 @@ namespace GymGenZ.PViews
 
             if(username == "" || phoneNumber == "" ||  repeatPassword == "" || newPassword == "")
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!");
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             if (newPassword != repeatPassword)
             {
-                MessageBox.Show("Mật khẩu mới và xác nhận mật khẩu mới không khớp.");
+                MessageBox.Show("Mật khẩu xác nhận không trùng khớp!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -39,7 +39,7 @@ namespace GymGenZ.PViews
             {
                 if (_staff.ChangePassword(username, newPassword))
                 {
-                    MessageBox.Show("Đổi mật khẩu thành công!");
+                    MessageBox.Show("Thay đổi mật khẩu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Hide();
                     F_Login f = new F_Login();
                     f.ShowDialog();
@@ -47,18 +47,26 @@ namespace GymGenZ.PViews
                 }
                 else
                 {
-                    MessageBox.Show("Đổi mật khẩu thất bại. Vui lòng kiểm tra lại thông tin.");
+                    MessageBox.Show("Thay đổi mật khẩu thất bại! Vui lòng kiểm tra lại thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Thông tin đăng nhập không đúng. Vui lòng kiểm tra lại.");
+                MessageBox.Show("Thông tin đăng nhập không đúng! Vui lòng kiểm tra lại thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void F_ForgetPassword_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            F_Login f = new F_Login();
+            f.ShowDialog();
+            this.Close();
         }
     }
 }

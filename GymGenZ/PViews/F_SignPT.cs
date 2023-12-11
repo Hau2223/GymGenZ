@@ -67,7 +67,7 @@ namespace GymGenZ.PViews
         {
             if (cbSession.SelectedItem == null || checkCount == 0 || checkRadioShiftCode() == "" || idStaff == null)
             {
-                MessageBox.Show("Vui lòng chọn đầy đủ thông tin!");
+                MessageBox.Show("Vui lòng chọn đầy đủ thông tin!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             else
@@ -124,7 +124,7 @@ namespace GymGenZ.PViews
             }
             else
             {
-                MessageBox.Show("Thời gian tập không hợp lệ!");
+                MessageBox.Show("Thời gian tập không hợp lệ!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

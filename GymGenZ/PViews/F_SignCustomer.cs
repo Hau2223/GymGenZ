@@ -17,6 +17,8 @@ namespace GymGenZ.PViews
     public partial class F_SignCustomer : Form
     {
         private SQLiteConnection conn = new SQLiteConnection("Data Source=C:\\data\\GYM.db");
+        CPackage packageManager = new CPackage("Data Source=C:\\data\\GYM.db");
+        CCustomer customerManager = new CCustomer("Data Source=C:\\data\\GYM.db");
         private int idMaxCus = 0;
         
         public F_SignCustomer()
@@ -29,7 +31,7 @@ namespace GymGenZ.PViews
         {
             try
             {
-                CPackage packageManager = new CPackage("Data Source=C:\\data\\GYM.db");
+                
                 List<MPackage> packageInfoList = packageManager.getAllPakage();
                 if (packageInfoList.Count > 0)
                 {
@@ -66,7 +68,7 @@ namespace GymGenZ.PViews
         {
             if (tbAddress.Text == "" || tbName.Text == "" || tbPhone.Text == "" || tbID.Text == "" || cbGender.SelectedItem == null)
             {
-                MessageBox.Show("vui lòng nhập đầy đủ thông tin.");
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }else { return true; }
         }
@@ -75,14 +77,14 @@ namespace GymGenZ.PViews
         {
             if (!IsValidPhoneNumber(phone))
             {
-                MessageBox.Show("Số điện thoại không hợp lệ.");
+                MessageBox.Show("Số điện thoại không hợp lệ!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             else
             {
                 if (!IsValidCCCD(cccd))
                 {
-                    MessageBox.Show("CCCD không hợp lệ.");
+                    MessageBox.Show("Căn cước công dân không hợp lệ!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
                 else
@@ -113,6 +115,21 @@ namespace GymGenZ.PViews
             {
                 return;
             }
+
+            bool checkPhone = customerManager.CheckPhoneExist(phone);
+            if(checkPhone == true)
+            {
+                MessageBox.Show("Số điện thoại đã được đăng ký!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            bool checkCCCD = customerManager.CheckCCCDExist(cccd);
+            if (checkCCCD == true)
+            {
+                MessageBox.Show("Căn cước công dân đã được đăng ký!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
 
             F_Main currentFMain = FindOpenF_Main();
 

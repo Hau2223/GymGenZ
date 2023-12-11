@@ -116,7 +116,7 @@ namespace GymGenZ.PViews
         {
             if(method == "err")
             {
-                MessageBox.Show("Vui lòng chọn hình thức thanh toán!");
+                MessageBox.Show("Vui lòng chọn hình thức thanh toán!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             else
