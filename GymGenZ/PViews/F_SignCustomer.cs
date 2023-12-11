@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SQLite;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -61,43 +62,56 @@ namespace GymGenZ.PViews
             return null;
         }
 
+        private bool validateNull()
+        {
+            if (tbAddress.Text == "" || tbName.Text == "" || tbPhone.Text == "" || tbID.Text == "" || cbGender.SelectedItem == null)
+            {
+                MessageBox.Show("vui lòng nhập đầy đủ thông tin.");
+                return false;
+            }else { return true; }
+        }
+
+        private bool validateCharacters(string phone, string cccd)
+        {
+            if (!IsValidPhoneNumber(phone))
+            {
+                MessageBox.Show("Số điện thoại không hợp lệ.");
+                return false;
+            }
+            else
+            {
+                if (!IsValidCCCD(cccd))
+                {
+                    MessageBox.Show("CCCD không hợp lệ.");
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+
+           
+        }
+
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            
+            if (validateNull() == false)
+            {
+                return;
+            }
+
             string name = tbName.Text;
             string phone = tbPhone.Text;
             string cccd = tbID.Text;
             string idPakage = cbPakage.SelectedValue.ToString();
-            string gender = "";
-
-            if(tbAddress.Text == "" || tbName.Text == "" ||  tbPhone.Text == "" || tbID.Text == "")
-            {
-                MessageBox.Show("vui lòng nhập đầy đủ thông tin.");
-                return;
-            }
-
-            if (!IsValidPhoneNumber(phone))
-            {
-                MessageBox.Show("Số điện thoại không hợp lệ.");
-                return;
-            }
-
-            if (!IsValidCCCD(cccd))
-            {
-                MessageBox.Show("CCCD không hợp lệ.");
-                return;
-            }
-
             string address = tbAddress.Text;
-            if (cbGender.SelectedItem == null)
+            string gender = cbGender.SelectedItem.ToString();
+
+            if (validateCharacters(phone, cccd)  == false)
             {
-                MessageBox.Show("Vui lòng chọn giới tính !!");
                 return;
-            }
-            else
-            {
-                gender = cbGender.SelectedItem.ToString();
             }
 
             F_Main currentFMain = FindOpenF_Main();
@@ -108,7 +122,7 @@ namespace GymGenZ.PViews
 
                 if (fmainPanel != null)
                 {
-                    F_Payment f = new F_Payment(name, phone, cccd, address, gender, idPakage);
+                    F_PaymentPackgae f = new F_PaymentPackgae(name, phone, cccd, address, gender, idPakage);
                     f.TopLevel = false;
                     f.Dock = DockStyle.Fill;
                     fmainPanel.Controls.Add(f);
@@ -141,6 +155,11 @@ namespace GymGenZ.PViews
         }
 
         private void F_SignCustomer_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbPakage_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

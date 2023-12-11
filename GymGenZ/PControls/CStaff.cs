@@ -104,8 +104,8 @@ namespace GymGenZ.PControls
                     return true;
                 }
             }
-        }        
-        public List<MStaff> SearchStaff(string searchText)
+        }
+        /*public List<MStaff> SearchStaff(string searchText)
         {
             List<MStaff> staffs = new List<MStaff>();
 
@@ -144,7 +144,59 @@ namespace GymGenZ.PControls
                 }
             }
             return staffs;
+        }*/
+
+        public List<MStaff> LoadAllStaff()
+        {
+            List<MStaff> staffs = new List<MStaff>();
+
+            using (SQLiteConnection con = new SQLiteConnection(_conn))
+            {
+                con.Open();
+                string query = "SELECT Staff.id AS StaffID, Staff.username AS UserName, " +
+                               "Staff.roll AS Roll, Staff.fullName AS FullName, " +
+                               "Staff.numberPhone AS NumberPhone, Staff.idCard AS IDCard, " +
+                               "Staff.gender AS Gender, Staff.birth AS Birth, Staff.address AS Address " +
+                               "FROM Staff";
+                using (SQLiteCommand cmd = new SQLiteCommand(query, con))
+                {
+                    using (SQLiteDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            MStaff staff = new MStaff
+                            {
+                                staffID = reader["StaffID"].ToString(),
+                                username = reader["UserName"].ToString(),
+                                roll = reader["Roll"].ToString(),
+                                fullname = reader["FullName"].ToString(),
+                                numberPhone = reader["NumberPhone"].ToString(),
+                                idCard = reader["IDCard"].ToString(),
+                                gender = reader["Gender"].ToString(),
+                                birth = reader["Birth"].ToString(),
+                                address = reader["Address"].ToString()
+                            };
+                            staffs.Add(staff);
+                        }
+                    }
+                }
+            }
+            return staffs;
         }
+
+        public List<MStaff> SearchStaff(string searchText)
+        {
+            List<MStaff> allStaff = LoadAllStaff();
+            List<MStaff> filteredStaff = allStaff.Where(staff =>
+                staff.username.Contains(searchText) ||
+                staff.idCard.Contains(searchText) ||
+                staff.fullname.Contains(searchText) ||
+                staff.numberPhone.Contains(searchText)
+            ).ToList();
+
+            return filteredStaff;
+        }
+
 
         public bool CheckPhoneNumber(string numberPhone)
         {
@@ -245,7 +297,65 @@ namespace GymGenZ.PControls
                 }
             }
         }
+        public Tuple<int, string, int, int> getServiceTrainer(string idService)
+        {
+            Tuple<int, string, int, int> serviceInfo = null;
 
+            using (SQLiteConnection connection = new SQLiteConnection(_conn))
+            {
+                string query = $"SELECT * FROM PTrainerService WHERE id = {idService}";
+
+                using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            int id = reader.GetInt32(0);
+                            string name = reader.GetString(1);
+                            int time = reader.GetInt32(2);
+                            int price = reader.GetInt32(3);
+
+                            serviceInfo = Tuple.Create(id, name, time, price);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Service not found.");
+                        }
+                    }
+                }
+            }
+            return serviceInfo;
+        }
+
+        public string getNameStaff(int idStaff)
+        {
+            string nameStaff = null;
+
+            using (SQLiteConnection connection = new SQLiteConnection(_conn))
+            {
+                string query = $"SELECT * FROM Staff WHERE id = {idStaff}";
+
+                using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                {
+                    connection.Open();
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+
+                            string name = reader.GetString(1);
+                            nameStaff = name;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Service not found.");
+                        }
+                    }
+                }
+            }
+            return nameStaff;
+        }
 
     }
 }
