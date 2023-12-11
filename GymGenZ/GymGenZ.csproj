@@ -79,7 +79,6 @@
     <Compile Include="PModels\MDiscount.cs" />
     <Compile Include="PControls\CPayment.cs" />
     <Compile Include="PControls\CStaff.cs" />
-    <Compile Include="PModels\MCustomer.cs" />
     <Compile Include="PModels\MPayment.cs" />
     <Compile Include="PModels\MProduct.cs" />
     <Compile Include="PModels\MStaff.cs" />
@@ -87,6 +86,12 @@
     <Compile Include="PModels\MPTrainerService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PViews\F_CheckIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PViews\F_CheckIn.Designer.cs">
+      <DependentUpon>F_CheckIn.cs</DependentUpon>
+    </Compile>
     <Compile Include="PViews\F_Customer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +158,12 @@
     <Compile Include="PViews\F_PaymentService.Designer.cs">
       <DependentUpon>F_PaymentService.cs</DependentUpon>
     </Compile>
+    <Compile Include="PViews\F_SalesManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PViews\F_SalesManager.Designer.cs">
+      <DependentUpon>F_SalesManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="PViews\F_Schedule.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +188,18 @@
     <Compile Include="PViews\F_SignPT.Designer.cs">
       <DependentUpon>F_SignPT.cs</DependentUpon>
     </Compile>
+    <Compile Include="PViews\itemProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PViews\itemProduct.Designer.cs">
+      <DependentUpon>itemProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PViews\item_ChooseProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PViews\item_ChooseProduct.Designer.cs">
+      <DependentUpon>item_ChooseProduct.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -187,6 +210,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="PViews\F_CheckIn.resx">
+      <DependentUpon>F_CheckIn.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PViews\F_Customer.resx">
       <DependentUpon>F_Customer.cs</DependentUpon>
     </EmbeddedResource>
@@ -220,6 +246,9 @@
     <EmbeddedResource Include="PViews\F_PaymentService.resx">
       <DependentUpon>F_PaymentService.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PViews\F_SalesManager.resx">
+      <DependentUpon>F_SalesManager.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PViews\F_Schedule.resx">
       <DependentUpon>F_Schedule.cs</DependentUpon>
     </EmbeddedResource>
@@ -231,6 +260,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PViews\F_SignPT.resx">
       <DependentUpon>F_SignPT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PViews\itemProduct.resx">
+      <DependentUpon>itemProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PViews\item_ChooseProduct.resx">
+      <DependentUpon>item_ChooseProduct.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

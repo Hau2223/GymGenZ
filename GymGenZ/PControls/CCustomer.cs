@@ -38,6 +38,7 @@ namespace GymGenZ.PControls
                             c.start AS Start,
                             c.end AS End,
                             c.address AS Address,
+                            c.soBuoiTap AS SoBuoiTap,
                             p.name AS PackageName,
                             st.fullName AS TrainerName
                         FROM Customer c
@@ -64,6 +65,7 @@ namespace GymGenZ.PControls
                                 phoneNumber = reader["PhoneNumber"].ToString(),
                                 start = reader["Start"].ToString(),
                                 end = reader["End"].ToString(),
+                                soBuoiTap = reader["SoBuoiTap"].ToString(),
                                 address = reader["Address"].ToString(),
                                 packageName = reader["PackageName"].ToString(),
                                 trainerName = reader["TrainerName"].ToString(),
@@ -333,6 +335,32 @@ namespace GymGenZ.PControls
             {
                 MessageBox.Show("Lỗi: " + ex.Message);
                 return false;
+            }
+            finally
+            {
+                _conn.Close();
+            }
+        }
+
+
+        public void UpdateSoBuoiTap(string customerId, int newSoBuoiTap)
+        {
+            try
+            {
+                _conn.Open();
+
+                // Thực hiện truy vấn cập nhật
+                string updateQuery = "UPDATE Customer SET SoBuoiTap = @NewSoBuoiTap WHERE id = @CustomerId";
+                using (SQLiteCommand updateCmd = new SQLiteCommand(updateQuery, _conn))
+                {
+                    updateCmd.Parameters.AddWithValue("@NewSoBuoiTap", newSoBuoiTap);
+                    updateCmd.Parameters.AddWithValue("@CustomerId", customerId);
+                    updateCmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
             }
             finally
             {
