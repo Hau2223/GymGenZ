@@ -17,6 +17,6 @@ namespace GymGenZ.PModels
         public string idCard { get; set; }
         public string gender { get; set; }
         public string birth { get; set; }
-        public string address { get; set; }
+        public string address { get; set; } 
     }
 }
