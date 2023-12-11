@@ -27,6 +27,7 @@ namespace GymGenZ.PViews
             InitializeComponent();
             getAllCateProduct();
             loadDataToGrid();
+            dataProduct.DataBindingComplete += dataProduct_DataBindingComplete;
         }
 
         private void F_ManagerProduct_Load(object sender, EventArgs e)
@@ -311,6 +312,11 @@ namespace GymGenZ.PViews
             }
 
            
+        }
+
+        private void dataProduct_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dataProduct.Columns["image"].Visible = false;
         }
     }
 }

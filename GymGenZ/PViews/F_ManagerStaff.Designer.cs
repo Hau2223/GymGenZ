@@ -34,16 +34,17 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.tbIDStaff = new System.Windows.Forms.TextBox();
             this.tbAccStaff = new System.Windows.Forms.TextBox();
             this.tbFNameStaff = new System.Windows.Forms.TextBox();
             this.tbSTDStaff = new System.Windows.Forms.TextBox();
             this.tbCCCDStaff = new System.Windows.Forms.TextBox();
-            this.tbRollStaff = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rdoRollHLV = new System.Windows.Forms.RadioButton();
+            this.rdoRollStaff = new System.Windows.Forms.RadioButton();
+            this.rdoRollAdmin = new System.Windows.Forms.RadioButton();
             this.panel10 = new System.Windows.Forms.Panel();
             this.cbGDFemaleStaff = new System.Windows.Forms.CheckBox();
             this.cbGDMaleStaff = new System.Windows.Forms.CheckBox();
@@ -80,7 +81,7 @@
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
-            this.panel8.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -162,17 +163,6 @@
             this.label6.TabIndex = 2;
             this.label6.Text = "Số điện thoại";
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(5, 2);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(73, 20);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Vai trò";
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -195,7 +185,7 @@
             this.tbIDStaff.Multiline = true;
             this.tbIDStaff.Name = "tbIDStaff";
             this.tbIDStaff.ReadOnly = true;
-            this.tbIDStaff.Size = new System.Drawing.Size(263, 26);
+            this.tbIDStaff.Size = new System.Drawing.Size(308, 26);
             this.tbIDStaff.TabIndex = 1;
             // 
             // tbAccStaff
@@ -207,8 +197,8 @@
             this.tbAccStaff.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbAccStaff.Multiline = true;
             this.tbAccStaff.Name = "tbAccStaff";
-            this.tbAccStaff.Size = new System.Drawing.Size(264, 26);
-            this.tbAccStaff.TabIndex = 10;
+            this.tbAccStaff.Size = new System.Drawing.Size(309, 26);
+            this.tbAccStaff.TabIndex = 12;
             // 
             // tbFNameStaff
             // 
@@ -218,8 +208,8 @@
             this.tbFNameStaff.Location = new System.Drawing.Point(155, 2);
             this.tbFNameStaff.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbFNameStaff.Name = "tbFNameStaff";
-            this.tbFNameStaff.Size = new System.Drawing.Size(265, 28);
-            this.tbFNameStaff.TabIndex = 3;
+            this.tbFNameStaff.Size = new System.Drawing.Size(310, 28);
+            this.tbFNameStaff.TabIndex = 5;
             // 
             // tbSTDStaff
             // 
@@ -230,8 +220,8 @@
             this.tbSTDStaff.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbSTDStaff.Multiline = true;
             this.tbSTDStaff.Name = "tbSTDStaff";
-            this.tbSTDStaff.Size = new System.Drawing.Size(264, 26);
-            this.tbSTDStaff.TabIndex = 4;
+            this.tbSTDStaff.Size = new System.Drawing.Size(309, 26);
+            this.tbSTDStaff.TabIndex = 6;
             // 
             // tbCCCDStaff
             // 
@@ -242,24 +232,12 @@
             this.tbCCCDStaff.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbCCCDStaff.Multiline = true;
             this.tbCCCDStaff.Name = "tbCCCDStaff";
-            this.tbCCCDStaff.Size = new System.Drawing.Size(264, 26);
-            this.tbCCCDStaff.TabIndex = 5;
-            // 
-            // tbRollStaff
-            // 
-            this.tbRollStaff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.tbRollStaff.Cursor = System.Windows.Forms.Cursors.Default;
-            this.tbRollStaff.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbRollStaff.Location = new System.Drawing.Point(156, 0);
-            this.tbRollStaff.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbRollStaff.Multiline = true;
-            this.tbRollStaff.Name = "tbRollStaff";
-            this.tbRollStaff.Size = new System.Drawing.Size(263, 26);
-            this.tbRollStaff.TabIndex = 2;
+            this.tbCCCDStaff.Size = new System.Drawing.Size(309, 26);
+            this.tbCCCDStaff.TabIndex = 7;
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.panel8);
+            this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.panel10);
             this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.panel5);
@@ -270,31 +248,69 @@
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(1069, 181);
+            this.panel1.Location = new System.Drawing.Point(1014, 148);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(444, 416);
+            this.panel1.Size = new System.Drawing.Size(497, 441);
             this.panel1.TabIndex = 8;
             // 
-            // panel8
+            // groupBox2
             // 
-            this.panel8.Controls.Add(this.tbRollStaff);
-            this.panel8.Controls.Add(this.label7);
-            this.panel8.Location = new System.Drawing.Point(9, 84);
-            this.panel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(428, 28);
-            this.panel8.TabIndex = 12;
+            this.groupBox2.Controls.Add(this.rdoRollHLV);
+            this.groupBox2.Controls.Add(this.rdoRollStaff);
+            this.groupBox2.Controls.Add(this.rdoRollAdmin);
+            this.groupBox2.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(8, 73);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(480, 67);
+            this.groupBox2.TabIndex = 12;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Vai trò";
+            // 
+            // rdoRollHLV
+            // 
+            this.rdoRollHLV.AutoSize = true;
+            this.rdoRollHLV.Location = new System.Drawing.Point(130, 27);
+            this.rdoRollHLV.Name = "rdoRollHLV";
+            this.rdoRollHLV.Size = new System.Drawing.Size(183, 24);
+            this.rdoRollHLV.TabIndex = 3;
+            this.rdoRollHLV.TabStop = true;
+            this.rdoRollHLV.Text = "Huấn luyện viên";
+            this.rdoRollHLV.UseVisualStyleBackColor = true;
+            this.rdoRollHLV.CheckedChanged += new System.EventHandler(this.rdoRollHLV_CheckedChanged);
+            // 
+            // rdoRollStaff
+            // 
+            this.rdoRollStaff.AutoSize = true;
+            this.rdoRollStaff.Location = new System.Drawing.Point(338, 27);
+            this.rdoRollStaff.Name = "rdoRollStaff";
+            this.rdoRollStaff.Size = new System.Drawing.Size(127, 24);
+            this.rdoRollStaff.TabIndex = 4;
+            this.rdoRollStaff.TabStop = true;
+            this.rdoRollStaff.Text = "Nhân Viên";
+            this.rdoRollStaff.UseVisualStyleBackColor = true;
+            // 
+            // rdoRollAdmin
+            // 
+            this.rdoRollAdmin.AutoSize = true;
+            this.rdoRollAdmin.Location = new System.Drawing.Point(12, 27);
+            this.rdoRollAdmin.Name = "rdoRollAdmin";
+            this.rdoRollAdmin.Size = new System.Drawing.Size(91, 24);
+            this.rdoRollAdmin.TabIndex = 2;
+            this.rdoRollAdmin.TabStop = true;
+            this.rdoRollAdmin.Text = "Admin";
+            this.rdoRollAdmin.UseVisualStyleBackColor = true;
+            this.rdoRollAdmin.CheckedChanged += new System.EventHandler(this.rdoRollAdmin_CheckedChanged);
             // 
             // panel10
             // 
             this.panel10.Controls.Add(this.cbGDFemaleStaff);
             this.panel10.Controls.Add(this.cbGDMaleStaff);
             this.panel10.Controls.Add(this.tbGenderStaff);
-            this.panel10.Location = new System.Drawing.Point(8, 220);
+            this.panel10.Location = new System.Drawing.Point(9, 251);
             this.panel10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(428, 32);
+            this.panel10.Size = new System.Drawing.Size(480, 32);
             this.panel10.TabIndex = 11;
             // 
             // cbGDFemaleStaff
@@ -305,7 +321,7 @@
             this.cbGDFemaleStaff.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbGDFemaleStaff.Name = "cbGDFemaleStaff";
             this.cbGDFemaleStaff.Size = new System.Drawing.Size(55, 24);
-            this.cbGDFemaleStaff.TabIndex = 7;
+            this.cbGDFemaleStaff.TabIndex = 9;
             this.cbGDFemaleStaff.Text = "Nữ";
             this.cbGDFemaleStaff.UseVisualStyleBackColor = true;
             this.cbGDFemaleStaff.CheckedChanged += new System.EventHandler(this.cbGDFemaleStaff_CheckedChanged);
@@ -318,7 +334,7 @@
             this.cbGDMaleStaff.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbGDMaleStaff.Name = "cbGDMaleStaff";
             this.cbGDMaleStaff.Size = new System.Drawing.Size(71, 24);
-            this.cbGDMaleStaff.TabIndex = 6;
+            this.cbGDMaleStaff.TabIndex = 8;
             this.cbGDMaleStaff.Text = "Nam";
             this.cbGDMaleStaff.UseVisualStyleBackColor = true;
             this.cbGDMaleStaff.CheckedChanged += new System.EventHandler(this.cbGDMaleStaff_CheckedChanged);
@@ -338,30 +354,30 @@
             // 
             this.panel6.Controls.Add(this.tbCCCDStaff);
             this.panel6.Controls.Add(this.label8);
-            this.panel6.Location = new System.Drawing.Point(8, 185);
+            this.panel6.Location = new System.Drawing.Point(9, 216);
             this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(428, 32);
+            this.panel6.Size = new System.Drawing.Size(480, 32);
             this.panel6.TabIndex = 11;
             // 
             // panel5
             // 
             this.panel5.Controls.Add(this.tbSTDStaff);
             this.panel5.Controls.Add(this.label6);
-            this.panel5.Location = new System.Drawing.Point(9, 150);
+            this.panel5.Location = new System.Drawing.Point(10, 181);
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(428, 32);
+            this.panel5.Size = new System.Drawing.Size(480, 32);
             this.panel5.TabIndex = 10;
             // 
             // panel7
             // 
             this.panel7.Controls.Add(this.tbPassStaff);
             this.panel7.Controls.Add(this.label9);
-            this.panel7.Location = new System.Drawing.Point(8, 373);
+            this.panel7.Location = new System.Drawing.Point(9, 404);
             this.panel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(428, 32);
+            this.panel7.Size = new System.Drawing.Size(480, 32);
             this.panel7.TabIndex = 9;
             // 
             // tbPassStaff
@@ -374,8 +390,8 @@
             this.tbPassStaff.Multiline = true;
             this.tbPassStaff.Name = "tbPassStaff";
             this.tbPassStaff.PasswordChar = '*';
-            this.tbPassStaff.Size = new System.Drawing.Size(265, 26);
-            this.tbPassStaff.TabIndex = 11;
+            this.tbPassStaff.Size = new System.Drawing.Size(310, 26);
+            this.tbPassStaff.TabIndex = 13;
             // 
             // label9
             // 
@@ -392,20 +408,20 @@
             // 
             this.panel4.Controls.Add(this.tbFNameStaff);
             this.panel4.Controls.Add(this.label5);
-            this.panel4.Location = new System.Drawing.Point(8, 114);
+            this.panel4.Location = new System.Drawing.Point(9, 145);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(428, 32);
+            this.panel4.Size = new System.Drawing.Size(479, 32);
             this.panel4.TabIndex = 9;
             // 
             // panel11
             // 
             this.panel11.Controls.Add(this.dtpkBirthStaff);
             this.panel11.Controls.Add(this.label10);
-            this.panel11.Location = new System.Drawing.Point(8, 258);
+            this.panel11.Location = new System.Drawing.Point(9, 289);
             this.panel11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(428, 32);
+            this.panel11.Size = new System.Drawing.Size(480, 32);
             this.panel11.TabIndex = 8;
             // 
             // dtpkBirthStaff
@@ -414,7 +430,7 @@
             this.dtpkBirthStaff.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpkBirthStaff.Name = "dtpkBirthStaff";
             this.dtpkBirthStaff.Size = new System.Drawing.Size(265, 22);
-            this.dtpkBirthStaff.TabIndex = 8;
+            this.dtpkBirthStaff.TabIndex = 10;
             // 
             // label10
             // 
@@ -431,10 +447,10 @@
             // 
             this.panel12.Controls.Add(this.tbAddressStaff);
             this.panel12.Controls.Add(this.label11);
-            this.panel12.Location = new System.Drawing.Point(9, 302);
+            this.panel12.Location = new System.Drawing.Point(10, 333);
             this.panel12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(428, 32);
+            this.panel12.Size = new System.Drawing.Size(480, 32);
             this.panel12.TabIndex = 8;
             // 
             // tbAddressStaff
@@ -446,8 +462,8 @@
             this.tbAddressStaff.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbAddressStaff.Multiline = true;
             this.tbAddressStaff.Name = "tbAddressStaff";
-            this.tbAddressStaff.Size = new System.Drawing.Size(264, 26);
-            this.tbAddressStaff.TabIndex = 9;
+            this.tbAddressStaff.Size = new System.Drawing.Size(309, 26);
+            this.tbAddressStaff.TabIndex = 11;
             // 
             // label11
             // 
@@ -464,20 +480,20 @@
             // 
             this.panel3.Controls.Add(this.tbAccStaff);
             this.panel3.Controls.Add(this.label4);
-            this.panel3.Location = new System.Drawing.Point(8, 337);
+            this.panel3.Location = new System.Drawing.Point(9, 368);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(428, 32);
+            this.panel3.Size = new System.Drawing.Size(480, 32);
             this.panel3.TabIndex = 8;
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.tbIDStaff);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Location = new System.Drawing.Point(8, 46);
+            this.panel2.Location = new System.Drawing.Point(9, 36);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(428, 32);
+            this.panel2.Size = new System.Drawing.Size(479, 32);
             this.panel2.TabIndex = 7;
             // 
             // ptbFindStaff
@@ -485,7 +501,7 @@
             this.ptbFindStaff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(19)))), ((int)(((byte)(99)))));
             this.ptbFindStaff.Image = global::GymGenZ.Properties.Resources.Vector;
             this.ptbFindStaff.Location = new System.Drawing.Point(243, 18);
-            this.ptbFindStaff.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ptbFindStaff.Margin = new System.Windows.Forms.Padding(5);
             this.ptbFindStaff.Name = "ptbFindStaff";
             this.ptbFindStaff.Size = new System.Drawing.Size(65, 50);
             this.ptbFindStaff.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -503,7 +519,7 @@
             this.tbFindStaff.Multiline = true;
             this.tbFindStaff.Name = "tbFindStaff";
             this.tbFindStaff.Size = new System.Drawing.Size(216, 30);
-            this.tbFindStaff.TabIndex = 14;
+            this.tbFindStaff.TabIndex = 17;
             // 
             // btn_UpdateStaff
             // 
@@ -512,10 +528,10 @@
             this.btn_UpdateStaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btn_UpdateStaff.ForeColor = System.Drawing.Color.White;
             this.btn_UpdateStaff.Location = new System.Drawing.Point(424, 6);
-            this.btn_UpdateStaff.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btn_UpdateStaff.Margin = new System.Windows.Forms.Padding(5);
             this.btn_UpdateStaff.Name = "btn_UpdateStaff";
             this.btn_UpdateStaff.Size = new System.Drawing.Size(160, 58);
-            this.btn_UpdateStaff.TabIndex = 12;
+            this.btn_UpdateStaff.TabIndex = 14;
             this.btn_UpdateStaff.Text = "Cập nhật";
             this.btn_UpdateStaff.UseVisualStyleBackColor = false;
             this.btn_UpdateStaff.Click += new System.EventHandler(this.btn_UpdateStaff_Click);
@@ -525,8 +541,8 @@
             this.panel9.Controls.Add(this.btnDeleteStaff);
             this.panel9.Controls.Add(this.btnAddStaff);
             this.panel9.Controls.Add(this.btn_UpdateStaff);
-            this.panel9.Location = new System.Drawing.Point(451, 618);
-            this.panel9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel9.Location = new System.Drawing.Point(411, 617);
+            this.panel9.Margin = new System.Windows.Forms.Padding(4);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(597, 69);
             this.panel9.TabIndex = 12;
@@ -534,16 +550,16 @@
             // btnDeleteStaff
             // 
             this.btnDeleteStaff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(19)))), ((int)(((byte)(99)))));
-            this.btnDeleteStaff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteStaff.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDeleteStaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnDeleteStaff.ForeColor = System.Drawing.Color.White;
             this.btnDeleteStaff.Location = new System.Drawing.Point(19, 6);
-            this.btnDeleteStaff.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnDeleteStaff.Margin = new System.Windows.Forms.Padding(5);
             this.btnDeleteStaff.Name = "btnDeleteStaff";
             this.btnDeleteStaff.Size = new System.Drawing.Size(160, 58);
-            this.btnDeleteStaff.TabIndex = 13;
+            this.btnDeleteStaff.TabIndex = 16;
             this.btnDeleteStaff.Text = "Xóa";
-            this.btnDeleteStaff.UseVisualStyleBackColor = false;
+            this.btnDeleteStaff.UseVisualStyleBackColor = true;
             this.btnDeleteStaff.Click += new System.EventHandler(this.btnDeleteStaff_Click);
             // 
             // btnAddStaff
@@ -554,10 +570,10 @@
             this.btnAddStaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnAddStaff.ForeColor = System.Drawing.Color.White;
             this.btnAddStaff.Location = new System.Drawing.Point(217, 6);
-            this.btnAddStaff.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnAddStaff.Margin = new System.Windows.Forms.Padding(5);
             this.btnAddStaff.Name = "btnAddStaff";
             this.btnAddStaff.Size = new System.Drawing.Size(160, 58);
-            this.btnAddStaff.TabIndex = 13;
+            this.btnAddStaff.TabIndex = 15;
             this.btnAddStaff.Text = "Thêm";
             this.btnAddStaff.UseVisualStyleBackColor = false;
             this.btnAddStaff.Click += new System.EventHandler(this.btnAddStaff_Click);
@@ -581,7 +597,7 @@
             this.dtgvStaff.Name = "dtgvStaff";
             this.dtgvStaff.RowHeadersWidth = 51;
             this.dtgvStaff.RowTemplate.Height = 24;
-            this.dtgvStaff.Size = new System.Drawing.Size(1037, 463);
+            this.dtgvStaff.Size = new System.Drawing.Size(999, 463);
             this.dtgvStaff.TabIndex = 13;
             this.dtgvStaff.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvStaff_CellContentClick);
             this.dtgvStaff.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dtgvStaff_DataBindingComplete);
@@ -625,7 +641,7 @@
             this.Column3.HeaderText = "Vai trò";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
-            this.Column3.Width = 125;
+            this.Column3.Width = 80;
             // 
             // Column4
             // 
@@ -695,8 +711,8 @@
             this.Load += new System.EventHandler(this.F_ManagerStaff_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -733,14 +749,12 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox tbIDStaff;
         private System.Windows.Forms.TextBox tbAccStaff;
         private System.Windows.Forms.TextBox tbFNameStaff;
         private System.Windows.Forms.TextBox tbSTDStaff;
         private System.Windows.Forms.TextBox tbCCCDStaff;
-        private System.Windows.Forms.TextBox tbRollStaff;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel6;
@@ -768,7 +782,10 @@
         private System.Windows.Forms.TextBox tbAddressStaff;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RadioButton rdoRollStaff;
+        private System.Windows.Forms.RadioButton rdoRollAdmin;
+        private System.Windows.Forms.RadioButton rdoRollHLV;
         private System.Windows.Forms.DataGridViewTextBoxColumn StaffID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
