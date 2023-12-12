@@ -348,8 +348,6 @@ namespace GymGenZ.PControls
             try
             {
                 _conn.Open();
-
-                // Thực hiện truy vấn cập nhật
                 string updateQuery = "UPDATE Customer SET SoBuoiTap = @NewSoBuoiTap WHERE id = @CustomerId";
                 using (SQLiteCommand updateCmd = new SQLiteCommand(updateQuery, _conn))
                 {

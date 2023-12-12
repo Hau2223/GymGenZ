@@ -36,33 +36,35 @@ namespace GymGenZ.PControls
             }
         }
 
-        public int getRoll(string username)
+        public int GetRoll(string username)
         {
-            int rollUser = 0;
+            int userRole = 0;
 
             using (SQLiteConnection connection = new SQLiteConnection(_conn))
             {
-                string query = $"SELECT * FROM Staff WHERE username = {username}";
+                string query = "SELECT * FROM Staff WHERE username = @username";
 
                 using (SQLiteCommand command = new SQLiteCommand(query, connection))
                 {
+                    command.Parameters.AddWithValue("@username", username);
+
                     connection.Open();
                     using (SQLiteDataReader reader = command.ExecuteReader())
                     {
                         if (reader.Read())
                         {
-                            int roll = reader.GetInt32(3);
-                            rollUser = roll;
+                            userRole = reader.GetInt32(3);
                         }
                         else
                         {
-                            Console.WriteLine("Service not found.");
+                            Console.WriteLine("User not found.");
                         }
                     }
                 }
             }
-            return rollUser;
+            return userRole;
         }
+
 
         public string getNameStaff(int idStaff)
         {

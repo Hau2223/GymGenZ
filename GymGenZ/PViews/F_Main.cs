@@ -30,7 +30,7 @@ namespace GymGenZ.PViews
 
         private void getRoll(string username)
         {
-            int roll = _dataStaff.getRoll(username);
+            int roll = _dataStaff.GetRoll(username);
             if(roll == 1)
             {
                 btnPakage.Enabled = false;

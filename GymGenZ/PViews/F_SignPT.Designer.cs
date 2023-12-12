@@ -216,12 +216,15 @@ namespace GymGenZ.PViews
             // 
             // btnSign
             // 
-            this.btnSign.Location = new System.Drawing.Point(938, 422);
+            this.btnSign.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(19)))), ((int)(((byte)(99)))));
+            this.btnSign.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnSign.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSign.Location = new System.Drawing.Point(843, 413);
             this.btnSign.Name = "btnSign";
-            this.btnSign.Size = new System.Drawing.Size(171, 39);
+            this.btnSign.Size = new System.Drawing.Size(188, 39);
             this.btnSign.TabIndex = 3;
-            this.btnSign.Text = "Sign";
-            this.btnSign.UseVisualStyleBackColor = true;
+            this.btnSign.Text = "Đăng ký";
+            this.btnSign.UseVisualStyleBackColor = false;
             this.btnSign.Click += new System.EventHandler(this.btnSign_Click);
             // 
             // cbSession
@@ -241,14 +244,14 @@ namespace GymGenZ.PViews
             this.groupBox3.Size = new System.Drawing.Size(132, 66);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Số buổi";
+            this.groupBox3.Text = "Gói tập";
             // 
             // F_SignPT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(1128, 428);
+            this.ClientSize = new System.Drawing.Size(1128, 453);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btnSign);
             this.Controls.Add(this.groupBox2);

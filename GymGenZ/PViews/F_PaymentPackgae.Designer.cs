@@ -349,12 +349,15 @@
             // 
             // btnPayment
             // 
+            this.btnPayment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(19)))), ((int)(((byte)(99)))));
+            this.btnPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnPayment.ForeColor = System.Drawing.Color.Transparent;
             this.btnPayment.Location = new System.Drawing.Point(325, 380);
             this.btnPayment.Name = "btnPayment";
             this.btnPayment.Size = new System.Drawing.Size(222, 41);
             this.btnPayment.TabIndex = 2;
             this.btnPayment.Text = "Thanh toán";
-            this.btnPayment.UseVisualStyleBackColor = true;
+            this.btnPayment.UseVisualStyleBackColor = false;
             this.btnPayment.Click += new System.EventHandler(this.btnPayment_Click);
             // 
             // panel9
@@ -465,7 +468,7 @@
             this.rdoDirect.Text = "Thanh toán trực tiếp";
             this.rdoDirect.UseVisualStyleBackColor = true;
             // 
-            // F_Payment
+            // F_PaymentPackgae
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -476,7 +479,7 @@
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "F_Payment";
+            this.Name = "F_PaymentPackgae";
             this.Text = "F_Payment";
             this.Load += new System.EventHandler(this.F_Payment_Load);
             this.panel7.ResumeLayout(false);

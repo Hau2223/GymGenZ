@@ -251,12 +251,15 @@
             // 
             // btnPayment
             // 
+            this.btnPayment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(19)))), ((int)(((byte)(99)))));
+            this.btnPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnPayment.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnPayment.Location = new System.Drawing.Point(315, 103);
             this.btnPayment.Name = "btnPayment";
             this.btnPayment.Size = new System.Drawing.Size(222, 41);
             this.btnPayment.TabIndex = 2;
             this.btnPayment.Text = "Thanh toán";
-            this.btnPayment.UseVisualStyleBackColor = true;
+            this.btnPayment.UseVisualStyleBackColor = false;
             this.btnPayment.Click += new System.EventHandler(this.btnPayment_Click);
             // 
             // panel12
