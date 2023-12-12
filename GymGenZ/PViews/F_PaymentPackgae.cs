@@ -18,7 +18,7 @@ namespace GymGenZ.PViews
     public partial class F_PaymentPackgae : Form
     {
         CCustomer customerManager = new CCustomer("Data Source=C:\\data\\GYM.db");
-        CPayment cPayment = new CPayment("Data Source=C:\\data\\GYM.db");
+        CPaymentPackage cPayment = new CPaymentPackage("Data Source=C:\\data\\GYM.db");
 
 
         string _name, _numberPhone, _CCCD, _address, _gender, _idPackage;

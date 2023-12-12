@@ -172,11 +172,7 @@ namespace GymGenZ.PControls
                                 idCateProduct = int.Parse(reader["CateProduct"].ToString()),
                                 image = reader["ImageProduct"].ToString()
 
-
-
-
                             };
-
                             products.Add(product);
                         }
                     }

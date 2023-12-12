@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GymGenZ.PModels
 {
-    internal class MPayment
+    internal class MPaymentPackage
     {
         public int id { get; set; }
         public int customerID { get; set; }
