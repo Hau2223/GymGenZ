@@ -60,8 +60,6 @@ namespace GymGenZ.PViews
                     tbAccStaff.Text = selectedStaff.username;
                     tbCCCDStaff.Text = selectedStaff.idCard;
                    
-                    
-         
                     if(selectedStaff.gender == "Nam")
                     {
                         cbGDMaleStaff.Checked = true;
@@ -123,18 +121,50 @@ namespace GymGenZ.PViews
                     birth = dtpkBirthStaff.Value.ToString("yyyy-MM-dd"),
                     address = tbAddressStaff.Text
                 };
-
-                bool addedSuccessfully = _dataStaff.AddStaff(newStaff);
-                if (addedSuccessfully)
+                if ( string.IsNullOrWhiteSpace(newStaff.roll) || string.IsNullOrWhiteSpace(newStaff.fullname) ||
+                   string.IsNullOrWhiteSpace(newStaff.numberPhone) || string.IsNullOrWhiteSpace(newStaff.idCard))
                 {
-                    MessageBox.Show("Thêm nhân viên thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    loadDataToGrid();
-                    ClearFields();
+                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin!!!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (newStaff.idCard.Length != 12)
+                {
+                    MessageBox.Show("Số CCCD không hợp lệ.\nVui lòng nhập lại số CCCD!!!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (newStaff.numberPhone.Length != 10)
+                {
+                    MessageBox.Show("Số điện thoại không hợp lệ.\nVui lòng nhập số lại điện thoại!!!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (_dataStaff.CheckUsername(newStaff.username))
+                {
+                    MessageBox.Show("Username đã tồn tại!!!\nVui lòng nhập lại Username khác.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (_dataStaff.CheckPhoneNumber(newStaff.numberPhone))
+                {
+                    MessageBox.Show("Số điện thoại đã tồn tại!!!\nVui lòng nhập lại SĐT khác", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (_dataStaff.CheckIDCard(newStaff.idCard))
+                {
+                    MessageBox.Show("Số CCCD đã tồn tại!!!\nVui lòng nhập lại CCCD khác", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (newStaff.password.Length < 6 || !newStaff.password.Any(char.IsUpper) || !newStaff.password.Any(char.IsDigit))
+                {
+                    MessageBox.Show("Mật khẩu phải có ít nhất 6 ký tự, một ký tự viết hoa và một số.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    MessageBox.Show("Không thể thêm nhân viên.\nVui lòng thử lại!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                    bool addedSuccessfully = _dataStaff.AddStaff(newStaff);
+                    if (addedSuccessfully)
+                    {
+                        MessageBox.Show("Thêm nhân viên thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        loadDataToGrid();
+                        ClearFields();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không thể thêm nhân viên.\nVui lòng thử lại!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                } 
+                   
             }
             else
             {
@@ -386,6 +416,11 @@ namespace GymGenZ.PViews
                 tbAccStaff.Text = string.Empty;
                 tbPassStaff.Text = string.Empty;
             }
+        }
+
+        private void tbFindStaff_TextChanged(object sender, EventArgs e)
+        {
+            searchStaff();
         }
     }
 }

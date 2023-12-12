@@ -3,15 +3,13 @@ using System.Data.SQLite;
 
 namespace GymGenZ.PControls
 {
-    internal class CPayment
+    internal class CPaymentPackage
     {
         private string _connectionString;
 
-        public CPayment(string connectionString)
+        public CPaymentPackage(string connectionString)
         {
             _connectionString = connectionString;
         }
-
-       
     }
 }

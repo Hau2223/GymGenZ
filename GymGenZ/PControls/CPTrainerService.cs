@@ -57,7 +57,6 @@ namespace GymGenZ.PControls
                             string name = reader.GetString(1);
                             int time = reader.GetInt32(2);
                             int price = reader.GetInt32(3);
-
                             serviceInfo = Tuple.Create(id, name, time, price);
                         }
                         else

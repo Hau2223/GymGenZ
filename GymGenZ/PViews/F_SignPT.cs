@@ -27,6 +27,8 @@ namespace GymGenZ.PViews
             LoadDataGridView();
             loadDataSession();
             idCus = idCustomer;
+            /*dtgvStaff.SelectionChanged += dtgvStaff_SelectionChanged;*/
+            dataStaff.SelectionChanged += dataStaff_SelectionChanged;
         }
 
         private void loadDataSession()
@@ -303,5 +305,6 @@ namespace GymGenZ.PViews
         {
             coutCBSession += 1;
         }
+
     }
 }

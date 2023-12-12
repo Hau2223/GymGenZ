@@ -105,46 +105,6 @@ namespace GymGenZ.PControls
                 }
             }
         }
-        /*public List<MStaff> SearchStaff(string searchText)
-        {
-            List<MStaff> staffs = new List<MStaff>();
-
-            using (SQLiteConnection con = new SQLiteConnection(_conn))
-            {
-                con.Open();
-                string query = "SELECT Staff.id AS StaffID, Staff.username AS UserName, " +
-                               "Staff.roll AS Roll, Staff.fullName AS FullName, " +
-                               "Staff.numberPhone AS NumberPhone, Staff.idCard AS IDCard, " +
-                               "Staff.gender AS Gender, Staff.birth AS Birth, Staff.address AS Address " +
-                               "FROM Staff " +
-                               "WHERE Staff.username LIKE @searchText OR Staff.idCard LIKE @searchText OR " +
-                               "Staff.fullName LIKE @searchText OR Staff.numberPhone LIKE @searchText";
-                using (SQLiteCommand cmd = new SQLiteCommand(query, con))
-                {
-                    cmd.Parameters.AddWithValue("@searchText", $"%{searchText}%");
-                    using (SQLiteDataReader reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            MStaff staff = new MStaff
-                            {
-                                staffID = reader["StaffID"].ToString(),
-                                username = reader["UserName"].ToString(),
-                                roll = reader["Roll"].ToString(),
-                                fullname = reader["FullName"].ToString(),
-                                numberPhone = reader["NumberPhone"].ToString(),
-                                idCard = reader["IDCard"].ToString(),
-                                gender = reader["Gender"].ToString(),
-                                birth = reader["Birth"].ToString(),
-                                address = reader["Address"].ToString()
-                            };
-                            staffs.Add(staff);
-                        }
-                    }
-                }
-            }
-            return staffs;
-        }*/
 
         public List<MStaff> LoadAllStaff()
         {
