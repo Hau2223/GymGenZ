@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GymGenZ.PControls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,49 +19,35 @@ namespace GymGenZ.PViews
         private F_CustomerSchedule f_CustomerSchedule;
 
         private string receivedValue;
+        CStaff _dataStaff = new CStaff("Data Source = C:\\data\\GYM.db");
 
         public F_Main(string user)
         {
             InitializeComponent();
             receivedValue = user;
+            getRoll(user);
+        }
+
+        private void getRoll(string username)
+        {
+            int roll = _dataStaff.getRoll(username);
+            if(roll == 1)
+            {
+                btnPakage.Enabled = false;
+                btnProduct.Enabled = false;
+                btnDiscout.Enabled = false;
+                btnStaff.Enabled = false;
+                btnPakage.Visible = false;
+                btnProduct.Visible = false;
+                btnDiscout.Visible = false;
+                btnStaff.Visible = false;
+            }
         }
 
         public Panel GetPanel()
         {
             return fMain;
         }
-
-        //private void decentralization(string name)
-        //{
-        //    lbUser.Text = "Xin chào: " + name;
-        //    using (SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT roll FROM Staff WHERE username = @name", conn))
-        //    {
-        //        da.SelectCommand.Parameters.AddWithValue("@name", name);
-        //        DataTable dt = new DataTable();
-        //        da.Fill(dt);
-
-        //        if (dt.Rows.Count > 0)
-        //        {
-        //            string userRole = dt.Rows[0]["roll"].ToString();
-        //            if (userRole == "0")
-        //            {
-        //            }
-        //            else if (userRole == "1")
-        //            {
-        //                btnStaff.Visible = false;
-        //                btnPakage.Visible = false;
-        //                btnDiscout.Visible = false;
-        //            }
-        //            else if (userRole == "2")
-        //            {
-        //            }
-        //            else
-        //            {
-        //                MessageBox.Show("Role not recognized.");
-        //            }
-        //        }
-        //    }
-        //}
 
         private void F_Main_Load(object sender, EventArgs e)
         {
@@ -92,9 +79,6 @@ namespace GymGenZ.PViews
 
             btnSales.BackColor = Color.FromArgb(26, 19, 99);
             btnSales.ForeColor = Color.White;
-
-
-
         }
 
         private void btnAddCus_Click(object sender, EventArgs e)

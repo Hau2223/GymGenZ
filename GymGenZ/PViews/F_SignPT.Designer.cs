@@ -1,4 +1,4 @@
-﻿namespace GymGenZ.PViews
+namespace GymGenZ.PViews
 {
     partial class F_SignPT
     {
@@ -46,6 +46,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.fullname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataStaff)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -57,8 +59,16 @@
             // 
             this.dataStaff.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataStaff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+<<<<<<< Updated upstream
             this.dataStaff.Location = new System.Drawing.Point(16, 249);
             this.dataStaff.Margin = new System.Windows.Forms.Padding(4);
+=======
+            this.dataStaff.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.fullname,
+            this.phoneNumber});
+            this.dataStaff.Location = new System.Drawing.Point(15, 202);
+            this.dataStaff.Location = new System.Drawing.Point(12, 202);
+>>>>>>> Stashed changes
             this.dataStaff.Name = "dataStaff";
             this.dataStaff.RowHeadersWidth = 51;
             this.dataStaff.Size = new System.Drawing.Size(1359, 241);
@@ -280,6 +290,18 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Tên khách hàng:";
             // 
+            // fullname
+            // 
+            this.fullname.DataPropertyName = "fullname";
+            this.fullname.HeaderText = "Tên huần luyện viên";
+            this.fullname.Name = "fullname";
+            // 
+            // phoneNumber
+            // 
+            this.phoneNumber.DataPropertyName = "phoneNumber";
+            this.phoneNumber.HeaderText = "Số điện thoại";
+            this.phoneNumber.Name = "phoneNumber";
+            // 
             // F_SignPT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -328,5 +350,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fullname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn phoneNumber;
     }
 }

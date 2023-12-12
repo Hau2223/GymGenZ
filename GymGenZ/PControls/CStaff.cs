@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
 using System.Data;
@@ -36,6 +36,63 @@ namespace GymGenZ.PControls
             }
         }
 
+        public int getRoll(string username)
+        {
+            int rollUser = 0;
+
+            using (SQLiteConnection connection = new SQLiteConnection(_conn))
+            {
+                string query = $"SELECT * FROM Staff WHERE username = {username}";
+
+                using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                {
+                    connection.Open();
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            int roll = reader.GetInt32(3);
+                            rollUser = roll;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Service not found.");
+                        }
+                    }
+                }
+            }
+            return rollUser;
+        }
+
+        public string getNameStaff(int idStaff)
+        {
+            string nameStaff = null;
+
+            using (SQLiteConnection connection = new SQLiteConnection(_conn))
+            {
+                string query = $"SELECT * FROM Staff WHERE id = {idStaff}";
+
+                using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                {
+                    connection.Open();
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+
+                            string name = reader.GetString(4);
+                            nameStaff = name;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Service not found.");
+                        }
+                    }
+                }
+            }
+            return nameStaff;
+        }
+
         public List<MStaff> ShowAvailableStaff(string shiftCode, string date)
 {
             List<MStaff> staffList = new List<MStaff>();
@@ -49,7 +106,9 @@ namespace GymGenZ.PControls
                                "    SELECT 1 FROM TrainingSessions t " +
                                "    WHERE t.trainerID = s.id " +
                                $"      AND (t.ShiftCode = '{shiftCode}' AND t.Date = '{date}')" +
-                               ")";
+                               ") " +
+                               "AND s.roll = 2";
+
                 using (SQLiteCommand cmd = new SQLiteCommand(query, con))
                 {
                     using (SQLiteDataReader reader = cmd.ExecuteReader())
@@ -288,34 +347,7 @@ namespace GymGenZ.PControls
             return serviceInfo;
         }
 
-        public string getNameStaff(int idStaff)
-        {
-            string nameStaff = null;
-
-            using (SQLiteConnection connection = new SQLiteConnection(_conn))
-            {
-                string query = $"SELECT * FROM Staff WHERE id = {idStaff}";
-
-                using (SQLiteCommand command = new SQLiteCommand(query, connection))
-                {
-                    connection.Open();
-                    using (SQLiteDataReader reader = command.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-
-                            string name = reader.GetString(1);
-                            nameStaff = name;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Service not found.");
-                        }
-                    }
-                }
-            }
-            return nameStaff;
-        }
+        
 
     }
 }
