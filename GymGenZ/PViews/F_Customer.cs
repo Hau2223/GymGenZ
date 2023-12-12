@@ -49,20 +49,18 @@ namespace GymGenZ.PViews
             }
         }
 
-        private bool checkTimeCustomer()
-        {
-            DataGridViewRow selectedRow = dataGripViewCustomer.SelectedRows[0];
-            string dateEnd = selectedRow.Cells["end"].Value.ToString();
-            DateTime endDate = DateTime.Parse(dateEnd);
-            TimeSpan dayLife = endDate - currentDate;
-            
-
-            return true;
-        }
+        //private bool checkTimeCustomer()
+        //{
+        //    DataGridViewRow selectedRow = dataGripViewCustomer.SelectedRows[0];
+        //    string dateEnd = selectedRow.Cells["Ngày kết thúc"].Value.ToString();
+        //    DateTime endDate = DateTime.Parse(dateEnd);
+        //    TimeSpan dayLife = endDate - currentDate;
+        //    return true;
+        //}
 
         private void btnUpdatePackage_Click(object sender, EventArgs e)
         {
-            checkTimeCustomer();
+            MessageBox.Show("Đang phát triển!","Thông báo!" ,MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private bool checkTrainer(string idTrainer)

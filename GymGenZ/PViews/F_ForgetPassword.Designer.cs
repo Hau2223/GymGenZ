@@ -87,7 +87,8 @@
             this.btnBack.Location = new System.Drawing.Point(6, 329);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(286, 45);
-            this.btnBack.TabIndex = 6;
+            this.btnBack.TabIndex = 5;
+            this.btnBack.TabStop = false;
             this.btnBack.Text = "Trở về";
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
@@ -108,7 +109,8 @@
             this.txtRepeatPassword.Name = "txtRepeatPassword";
             this.txtRepeatPassword.PasswordChar = '*';
             this.txtRepeatPassword.Size = new System.Drawing.Size(282, 22);
-            this.txtRepeatPassword.TabIndex = 4;
+            this.txtRepeatPassword.TabIndex = 3;
+            this.txtRepeatPassword.TabStop = false;
             // 
             // repeatPassword
             // 
@@ -136,7 +138,8 @@
             this.txtUsername.Location = new System.Drawing.Point(7, 26);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(282, 22);
-            this.txtUsername.TabIndex = 1;
+            this.txtUsername.TabIndex = 0;
+            this.txtUsername.TabStop = false;
             // 
             // usename
             // 
@@ -155,10 +158,11 @@
             this.btnSend.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(19)))), ((int)(((byte)(99)))));
             this.btnSend.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnSend.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSend.Location = new System.Drawing.Point(6, 278);
+            this.btnSend.Location = new System.Drawing.Point(10, 275);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(286, 45);
-            this.btnSend.TabIndex = 5;
+            this.btnSend.TabIndex = 4;
+            this.btnSend.TabStop = false;
             this.btnSend.Text = "Gửi";
             this.btnSend.UseVisualStyleBackColor = false;
             this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
@@ -179,7 +183,8 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(282, 22);
-            this.txtPassword.TabIndex = 3;
+            this.txtPassword.TabIndex = 2;
+            this.txtPassword.TabStop = false;
             // 
             // password
             // 
@@ -207,7 +212,8 @@
             this.txtNumberphone.Location = new System.Drawing.Point(7, 26);
             this.txtNumberphone.Name = "txtNumberphone";
             this.txtNumberphone.Size = new System.Drawing.Size(279, 22);
-            this.txtNumberphone.TabIndex = 2;
+            this.txtNumberphone.TabIndex = 1;
+            this.txtNumberphone.TabStop = false;
             // 
             // numberphone
             // 

@@ -83,7 +83,6 @@ namespace GymGenZ.PViews
         
             Tuple<int, string, string, string, string, string> customerInfo = customerManager.GetCustomerInfo(int.Parse(idCus));
             DateTime endDate = DateTime.Parse(customerInfo.Item6);
-            lbName.Text = customerInfo.Item2;
             TimeSpan dayLife = endDate - currentDate;
             if (checkNull() == false)
             {
@@ -94,8 +93,12 @@ namespace GymGenZ.PViews
             int session = serviceInfo.Item3;
             int dayWithTrainer = (session / checkCount * 7);
 
+            MessageBox.Show(dayWithTrainer + " Trainer");
+            MessageBox.Show(dayLife.Days + " Life");
+            MessageBox.Show(session + " Session");
+
             bool resultCheckDate = checkDateTrainer(dayLife.Days, dayWithTrainer);
-            if(resultCheckDate == true)
+            if(resultCheckDate == true && session >= checkCount)
             {
                 string shiftCode = checkRadioShiftCode();
                 F_Main currentFMain = FindOpenF_Main();
@@ -163,6 +166,7 @@ namespace GymGenZ.PViews
             dataStaff.Rows.Clear();
             dataStaff.Columns.Clear();
 
+
             CStaff staffManager = new CStaff("Data Source=C:\\data\\GYM.db");
             List<MStaff> staffsList = new List<MStaff>();
             if (checkDateData.Count == 0)
@@ -175,6 +179,9 @@ namespace GymGenZ.PViews
             {
                 foreach (string date in checkDateData)
                 {
+
+                    MessageBox.Show(shiftCode);
+                    MessageBox.Show(date);
                     staffsList.Clear();
                     List<MStaff> cStaff = staffManager.ShowAvailableStaff(shiftCode, date);
                     staffsList.AddRange(cStaff);
