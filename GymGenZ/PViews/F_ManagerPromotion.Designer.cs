@@ -34,10 +34,8 @@
             this.rdoActivePromotion = new System.Windows.Forms.RadioButton();
             this.rdoExpiredPromotion = new System.Windows.Forms.RadioButton();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.tbDateEnd = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.tbdateStart = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tbIDPromotion = new System.Windows.Forms.TextBox();
@@ -55,6 +53,8 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateTPStart = new System.Windows.Forms.DateTimePicker();
+            this.dateTPdateEnd = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -84,9 +84,9 @@
             this.panel1.Controls.Add(this.panel7);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(928, 204);
+            this.panel1.Location = new System.Drawing.Point(954, 200);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(457, 266);
+            this.panel1.Size = new System.Drawing.Size(501, 266);
             this.panel1.TabIndex = 14;
             // 
             // groupBox2
@@ -94,9 +94,9 @@
             this.groupBox2.Controls.Add(this.rdoActivePromotion);
             this.groupBox2.Controls.Add(this.rdoExpiredPromotion);
             this.groupBox2.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(13, 184);
+            this.groupBox2.Location = new System.Drawing.Point(13, 190);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(426, 63);
+            this.groupBox2.Size = new System.Drawing.Size(466, 63);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tình Trạng";
@@ -104,6 +104,7 @@
             // rdoActivePromotion
             // 
             this.rdoActivePromotion.AutoSize = true;
+            this.rdoActivePromotion.Enabled = false;
             this.rdoActivePromotion.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdoActivePromotion.Location = new System.Drawing.Point(218, 29);
             this.rdoActivePromotion.Name = "rdoActivePromotion";
@@ -116,6 +117,7 @@
             // rdoExpiredPromotion
             // 
             this.rdoExpiredPromotion.AutoSize = true;
+            this.rdoExpiredPromotion.Enabled = false;
             this.rdoExpiredPromotion.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdoExpiredPromotion.Location = new System.Drawing.Point(45, 29);
             this.rdoExpiredPromotion.Name = "rdoExpiredPromotion";
@@ -127,23 +129,12 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.tbDateEnd);
+            this.panel4.Controls.Add(this.dateTPdateEnd);
             this.panel4.Controls.Add(this.label1);
-            this.panel4.Location = new System.Drawing.Point(13, 137);
+            this.panel4.Location = new System.Drawing.Point(13, 148);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(426, 30);
+            this.panel4.Size = new System.Drawing.Size(466, 30);
             this.panel4.TabIndex = 9;
-            // 
-            // tbDateEnd
-            // 
-            this.tbDateEnd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.tbDateEnd.Cursor = System.Windows.Forms.Cursors.Default;
-            this.tbDateEnd.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbDateEnd.Location = new System.Drawing.Point(180, 1);
-            this.tbDateEnd.Multiline = true;
-            this.tbDateEnd.Name = "tbDateEnd";
-            this.tbDateEnd.Size = new System.Drawing.Size(239, 26);
-            this.tbDateEnd.TabIndex = 4;
             // 
             // label1
             // 
@@ -158,23 +149,12 @@
             // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.tbdateStart);
             this.panel7.Controls.Add(this.label9);
+            this.panel7.Controls.Add(this.dateTPStart);
             this.panel7.Location = new System.Drawing.Point(13, 101);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(426, 30);
+            this.panel7.Size = new System.Drawing.Size(466, 41);
             this.panel7.TabIndex = 9;
-            // 
-            // tbdateStart
-            // 
-            this.tbdateStart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.tbdateStart.Cursor = System.Windows.Forms.Cursors.Default;
-            this.tbdateStart.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbdateStart.Location = new System.Drawing.Point(180, 1);
-            this.tbdateStart.Multiline = true;
-            this.tbdateStart.Name = "tbdateStart";
-            this.tbdateStart.Size = new System.Drawing.Size(239, 26);
-            this.tbdateStart.TabIndex = 4;
             // 
             // label9
             // 
@@ -193,7 +173,7 @@
             this.panel2.Controls.Add(this.label3);
             this.panel2.Location = new System.Drawing.Point(13, 51);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(426, 35);
+            this.panel2.Size = new System.Drawing.Size(466, 35);
             this.panel2.TabIndex = 7;
             // 
             // tbIDPromotion
@@ -204,7 +184,7 @@
             this.tbIDPromotion.Location = new System.Drawing.Point(180, 3);
             this.tbIDPromotion.Multiline = true;
             this.tbIDPromotion.Name = "tbIDPromotion";
-            this.tbIDPromotion.Size = new System.Drawing.Size(239, 26);
+            this.tbIDPromotion.Size = new System.Drawing.Size(283, 26);
             this.tbIDPromotion.TabIndex = 1;
             // 
             // label3
@@ -234,7 +214,7 @@
             this.panel9.Controls.Add(this.btnDeletePromotion);
             this.panel9.Controls.Add(this.btnAddPromotion);
             this.panel9.Controls.Add(this.btnUpdatePromotion);
-            this.panel9.Location = new System.Drawing.Point(306, 517);
+            this.panel9.Location = new System.Drawing.Point(858, 536);
             this.panel9.Margin = new System.Windows.Forms.Padding(4);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(597, 69);
@@ -324,6 +304,7 @@
             this.tbFindDiscount.Name = "tbFindDiscount";
             this.tbFindDiscount.Size = new System.Drawing.Size(216, 30);
             this.tbFindDiscount.TabIndex = 14;
+            this.tbFindDiscount.TextChanged += new System.EventHandler(this.tbFindDiscount_TextChanged);
             // 
             // dtgvDiscount
             // 
@@ -334,11 +315,11 @@
             this.Column2,
             this.Column3,
             this.Column4});
-            this.dtgvDiscount.Location = new System.Drawing.Point(100, 139);
+            this.dtgvDiscount.Location = new System.Drawing.Point(49, 144);
             this.dtgvDiscount.Name = "dtgvDiscount";
             this.dtgvDiscount.RowHeadersWidth = 51;
             this.dtgvDiscount.RowTemplate.Height = 24;
-            this.dtgvDiscount.Size = new System.Drawing.Size(803, 355);
+            this.dtgvDiscount.Size = new System.Drawing.Size(812, 349);
             this.dtgvDiscount.TabIndex = 18;
             this.dtgvDiscount.SelectionChanged += new System.EventHandler(this.dtgvDiscount_SelectionChanged);
             // 
@@ -373,6 +354,20 @@
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
             this.Column4.Width = 125;
+            // 
+            // dateTPStart
+            // 
+            this.dateTPStart.Location = new System.Drawing.Point(180, 7);
+            this.dateTPStart.Name = "dateTPStart";
+            this.dateTPStart.Size = new System.Drawing.Size(283, 22);
+            this.dateTPStart.TabIndex = 19;
+            // 
+            // dateTPdateEnd
+            // 
+            this.dateTPdateEnd.Location = new System.Drawing.Point(180, 3);
+            this.dateTPdateEnd.Name = "dateTPdateEnd";
+            this.dateTPdateEnd.Size = new System.Drawing.Size(283, 22);
+            this.dateTPdateEnd.TabIndex = 19;
             // 
             // F_ManagerPromotion
             // 
@@ -413,7 +408,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.TextBox tbdateStart;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox tbIDPromotion;
@@ -430,12 +424,13 @@
         private System.Windows.Forms.RadioButton rdoActivePromotion;
         private System.Windows.Forms.RadioButton rdoExpiredPromotion;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox tbDateEnd;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dtgvDiscount;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DateTimePicker dateTPStart;
+        private System.Windows.Forms.DateTimePicker dateTPdateEnd;
     }
 }

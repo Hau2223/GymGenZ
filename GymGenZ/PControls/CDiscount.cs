@@ -16,7 +16,50 @@ namespace GymGenZ.PControls
         {
             _conn = new SQLiteConnection(connectionString);
         }
+
+
+        public List<MDiscount> LoadAllDiscount()
+        {
+            List<MDiscount> discounts = new List<MDiscount>();
+
+            using (SQLiteConnection con = new SQLiteConnection(_conn))
+            {
+                con.Open();
+                string query = "SELECT Discount.id AS ID, " +
+                               "Discount.timeStart AS TimeStart, Discount.timeEnd AS TimeEnd, " +
+                               "Discount.status AS Status " +
+                               "FROM Discount";
+                using (SQLiteCommand cmd = new SQLiteCommand(query, con))
+                {
+                    using (SQLiteDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            MDiscount discount = new MDiscount
+                            {
+                                id = reader["ID"].ToString(),
+                                timeStart = reader["TimeStart"].ToString(),
+                                timeEnd = reader["TimeEnd"].ToString(),
+                                status = reader["Status"].ToString(),
+                            };
+                            discounts.Add(discount);
+                        }
+                    }
+                }
+            }
+            return discounts;
+        }
         public List<MDiscount> SearchDiscount(string searchText)
+        {
+            List<MDiscount> allDiscount = LoadAllDiscount();
+            List<MDiscount> filteredStaff = allDiscount.Where(discount =>
+                discount.id.Contains(searchText)
+            ).ToList();
+
+            return filteredStaff;
+        }
+
+        /*public List<MDiscount> SearchDiscount(string searchText)
         {
             List<MDiscount> staffs = new List<MDiscount>();
 
@@ -49,7 +92,7 @@ namespace GymGenZ.PControls
                 }
             }
             return staffs;
-        }
+        }*/
         public bool CheckIDDiscount(string id)
         {
             using (SQLiteConnection con = new SQLiteConnection(_conn))
