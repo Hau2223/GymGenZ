@@ -27,7 +27,6 @@ namespace GymGenZ.PViews
             LoadDataGridView();
             loadDataSession();
             idCus = idCustomer;
-            /*dtgvStaff.SelectionChanged += dtgvStaff_SelectionChanged;*/
             dataStaff.SelectionChanged += dataStaff_SelectionChanged;
         }
 
@@ -92,11 +91,6 @@ namespace GymGenZ.PViews
             Tuple<int, string, int, int> serviceInfo = serviceManager.getServiceTrainer(idService.ToString());
             int session = serviceInfo.Item3;
             int dayWithTrainer = (session / checkCount * 7);
-
-            MessageBox.Show(dayWithTrainer + " Trainer");
-            MessageBox.Show(dayLife.Days + " Life");
-            MessageBox.Show(session + " Session");
-
             bool resultCheckDate = checkDateTrainer(dayLife.Days, dayWithTrainer);
             if(resultCheckDate == true && session >= checkCount)
             {
@@ -180,8 +174,6 @@ namespace GymGenZ.PViews
                 foreach (string date in checkDateData)
                 {
 
-                    MessageBox.Show(shiftCode);
-                    MessageBox.Show(date);
                     staffsList.Clear();
                     List<MStaff> cStaff = staffManager.ShowAvailableStaff(shiftCode, date);
                     staffsList.AddRange(cStaff);
@@ -226,7 +218,6 @@ namespace GymGenZ.PViews
             {
                 result = "8";
             }
-
             return result;
         }
 

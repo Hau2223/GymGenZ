@@ -88,7 +88,7 @@ namespace GymGenZ.PViews
             this.groupBox1.Controls.Add(this.rdoC3);
             this.groupBox1.Controls.Add(this.rdoC2);
             this.groupBox1.Controls.Add(this.rdoC1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 63);
+            this.groupBox1.Location = new System.Drawing.Point(12, 130);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(512, 66);
             this.groupBox1.TabIndex = 1;
@@ -189,7 +189,7 @@ namespace GymGenZ.PViews
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.checkDate);
-            this.groupBox2.Location = new System.Drawing.Point(12, 130);
+            this.groupBox2.Location = new System.Drawing.Point(12, 58);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(512, 66);
             this.groupBox2.TabIndex = 2;
@@ -236,7 +236,7 @@ namespace GymGenZ.PViews
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.cbSession);
-            this.groupBox3.Location = new System.Drawing.Point(530, 63);
+            this.groupBox3.Location = new System.Drawing.Point(530, 58);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(132, 66);
             this.groupBox3.TabIndex = 5;

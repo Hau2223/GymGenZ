@@ -191,7 +191,7 @@ namespace GymGenZ.PControls
                 {
                     con.Open();
 
-                    string insertQuery = "INSERT INTO Payment (customerID, paymentDate, paymentMethod, packageID, amount) " +
+                    string insertQuery = "INSERT INTO PaymentPackage (customerID, paymentDate, paymentMethod, packageID, amount) " +
                                          "VALUES (@idCustomer, @paymentDay, @paymentMethod, @packageID, @amount)";
 
                     using (SQLiteCommand insertCmd = new SQLiteCommand(insertQuery, con))
