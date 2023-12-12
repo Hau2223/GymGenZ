@@ -77,10 +77,11 @@
     <Compile Include="PModels\MCateProduct.cs" />
     <Compile Include="PModels\MCustomer.cs" />
     <Compile Include="PModels\MDiscount.cs" />
-    <Compile Include="PControls\CPayment.cs" />
+    <Compile Include="PControls\CPaymentPackage.cs" />
     <Compile Include="PControls\CStaff.cs" />
-    <Compile Include="PModels\MPayment.cs" />
+    <Compile Include="PModels\MPaymentPackage.cs" />
     <Compile Include="PModels\MProduct.cs" />
+    <Compile Include="PModels\MSchedule.cs" />
     <Compile Include="PModels\MStaff.cs" />
     <Compile Include="PModels\MPackage.cs" />
     <Compile Include="PModels\MPTrainerService.cs" />
