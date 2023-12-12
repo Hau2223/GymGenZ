@@ -146,10 +146,6 @@ namespace GymGenZ.PViews
                 {
                     MessageBox.Show("Số CCCD đã tồn tại!!!\nVui lòng nhập lại CCCD khác", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                else if (newStaff.password.Length < 6 || !newStaff.password.Any(char.IsUpper) || !newStaff.password.Any(char.IsDigit))
-                {
-                    MessageBox.Show("Mật khẩu phải có ít nhất 6 ký tự, một ký tự viết hoa và một số.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
                 else
                 {
                     bool addedSuccessfully = _dataStaff.AddStaff(newStaff);
@@ -241,7 +237,7 @@ namespace GymGenZ.PViews
 
                 if (isHLV)
                 {
-                    MStaff newStaff = new MStaff
+                    MStaff updatedStaff = new MStaff
                     {
                         username = tbAccStaff.Text,
                         roll = "2",
@@ -252,18 +248,46 @@ namespace GymGenZ.PViews
                         birth = dtpkBirthStaff.Value.ToString("yyyy-MM-dd"),
                         address = tbAddressStaff.Text
                     };
-
-                    bool addedSuccessfully = _dataStaff.AddStaff(newStaff);
-                    if (addedSuccessfully)
+                    if ( string.IsNullOrWhiteSpace(updatedStaff.roll) || string.IsNullOrWhiteSpace(updatedStaff.fullname) ||
+                        string.IsNullOrWhiteSpace(updatedStaff.numberPhone) || string.IsNullOrWhiteSpace(updatedStaff.idCard))
                     {
-                        MessageBox.Show("Thêm nhân viên thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        loadDataToGrid();
-                        ClearFields();
+                        MessageBox.Show("Vui lòng nhập đầy đủ thông tin!!!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else if (updatedStaff.idCard.Length != 12)
+                    {
+                        MessageBox.Show("Số CCCD không hợp lệ.\nVui lòng nhập lại số CCCD!!!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else if (updatedStaff.numberPhone.Length != 10)
+                    {
+                        MessageBox.Show("Số điện thoại không hợp lệ.\nVui lòng nhập số lại điện thoại!!!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else if (_dataStaff.CheckUsername(updatedStaff.username))
+                    {
+                        MessageBox.Show("Username đã tồn tại!!!\nVui lòng nhập lại Username khác.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else if (_dataStaff.CheckPhoneNumber(updatedStaff.numberPhone))
+                    {
+                        MessageBox.Show("Số điện thoại đã tồn tại!!!\nVui lòng nhập lại SĐT khác", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else if (_dataStaff.CheckIDCard(updatedStaff.idCard))
+                    {
+                        MessageBox.Show("Số CCCD đã tồn tại!!!\nVui lòng nhập lại CCCD khác", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
-                        MessageBox.Show("Không thể thêm nhân viên.\nVui lòng thử lại!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        bool updatedSuccessfully = _dataStaff.UpdateStaff(updatedStaff);
+                        if (updatedSuccessfully)
+                        {
+                            MessageBox.Show("Cập nhật thông tin nhân viên thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            loadDataToGrid();
+                            ClearFields();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Không thể cập nhật thông tin nhân viên.\nVui lòng thử lại!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
+
                 }
                 else
                 {

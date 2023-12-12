@@ -40,9 +40,17 @@ namespace GymGenZ.PViews
                 if (selectedDiscount != null)
                 {
                     tbIDPromotion.Text = selectedDiscount.id;
-                    tbdateStart.Text = selectedDiscount.timeStart;
-                    tbDateEnd.Text = selectedDiscount.timeEnd;
-                    if( selectedDiscount.status == "1")
+                    DateTime startDate, endDate;
+                    if (DateTime.TryParseExact(selectedDiscount.timeStart, "yyyy-MM-dd", null, System.Globalization.DateTimeStyles.None, out startDate))
+                    {
+                        dateTPStart.Value = startDate;
+                    } 
+                    if (DateTime.TryParseExact(selectedDiscount.timeEnd, "yyyy-MM-dd", null, System.Globalization.DateTimeStyles.None, out endDate))
+                    {
+                        dateTPdateEnd.Value = endDate;
+                    }
+
+                    if ( selectedDiscount.status == "1")
                     {
                         rdoActivePromotion.Checked = true;
                     }
@@ -55,12 +63,15 @@ namespace GymGenZ.PViews
         }
         private void loadDataToGrid()
         {
+            _discount = _dataDiscount.LoadAllDiscount();
+            dtgvDiscount.DataSource = _discount;
+        }
+        private void Findicount()
+        {
             string searchText = tbFindDiscount.Text.Trim();
             _discount = _dataDiscount.SearchDiscount(searchText);
             dtgvDiscount.DataSource = _discount;
-
         }
-
         private void ptbFindPromotion_Click(object sender, EventArgs e)
         {
             loadDataToGrid();
@@ -71,12 +82,12 @@ namespace GymGenZ.PViews
             MDiscount newDiscount = new MDiscount
             {
                 id = tbIDPromotion.Text,
-                timeStart = tbdateStart.Text,
-                timeEnd = tbDateEnd.Text,
-                status = rdoActivePromotion.Checked ? "1" : "0",
+                timeStart = dateTPStart.Value.ToString("yyyy-MM-dd"), 
+                timeEnd = dateTPdateEnd.Value.ToString("yyyy-MM-dd"), 
             };
+
             if (string.IsNullOrWhiteSpace(newDiscount.id) || string.IsNullOrWhiteSpace(newDiscount.timeStart) ||
-                string.IsNullOrWhiteSpace(newDiscount.timeEnd) )
+                string.IsNullOrWhiteSpace(newDiscount.timeEnd))
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin!!!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -86,51 +97,86 @@ namespace GymGenZ.PViews
             }
             else
             {
-                // Gọi phương thức để thêm nhân viên mới
+                DateTime startDate = dateTPStart.Value; 
+                DateTime endDate = dateTPdateEnd.Value; 
+
+                if (startDate < DateTime.Today && endDate < DateTime.Today)
+                {
+                    newDiscount.status = "0"; 
+                }
+                else
+                {
+                    newDiscount.status = "1"; 
+                }
                 bool addedSuccessfully = _dataDiscount.AddDiscount(newDiscount);
+
                 if (addedSuccessfully)
                 {
                     MessageBox.Show("Thêm khuyến mãi thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     loadDataToGrid();
+                    ClearFields();
                 }
                 else
                 {
-                    // Xử lý khi thêm không thành công
                     MessageBox.Show("Không thể thêm khuyến mãi.\nVui lòng thử lại!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
         private void btnUpdatePromotion_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn cập nhật thông tin khuyến mãi này không?", "Some Title", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn cập nhật thông tin khuyến mãi này không?", "Thông Báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (dialogResult == DialogResult.OK)
             {
                 MDiscount updatedDiscount = new MDiscount
                 {
                     id = tbIDPromotion.Text,
-                    timeStart = tbdateStart.Text,
-                    timeEnd = tbDateEnd.Text,
-                    status = rdoActivePromotion.Checked ? "1" : "0",
+                    timeStart = dateTPStart.Value.ToString("yyyy-MM-dd"),
+                    timeEnd = dateTPdateEnd.Value.ToString("yyyy-MM-dd"), 
                 };
+
                 if (!string.IsNullOrEmpty(_idDiscount))
                 {
-                    bool updatedSuccessfully = _dataDiscount.UpdateDiscount(updatedDiscount);
-                    if (updatedSuccessfully)
+                    if (string.IsNullOrWhiteSpace(updatedDiscount.id) || string.IsNullOrWhiteSpace(updatedDiscount.timeStart) ||
+                    string.IsNullOrWhiteSpace(updatedDiscount.timeEnd))
                     {
-                        MessageBox.Show("Cập nhật thông tin khuyến mãi thành công!!!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        loadDataToGrid();
+                        MessageBox.Show("Vui lòng nhập đầy đủ thông tin!!!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else if (_dataDiscount.CheckIDDiscount(updatedDiscount.id))
+                    {
+                        MessageBox.Show("Mã khuyến mãi đã tồn tại!!!\nVui lòng nhập lại Mã khuyến mãi khác.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
-                        MessageBox.Show("Không thể cập nhật thông tin khuyến mãi.\nVui lòng thử lại!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        DateTime startDate = dateTPStart.Value;
+                        DateTime endDate = dateTPdateEnd.Value;
+
+                        if (startDate < DateTime.Today && endDate < DateTime.Today)
+                        {
+                            updatedDiscount.status = "0";
+                        }
+                        else
+                        {
+                            updatedDiscount.status = "1";
+                        }
+
+                        bool updatedSuccessfully = _dataDiscount.UpdateDiscount(updatedDiscount);
+
+                        if (updatedSuccessfully)
+                        {
+                            MessageBox.Show("Cập nhật thông tin khuyến mãi thành công!!!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            loadDataToGrid();
+                            ClearFields();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Không thể cập nhật thông tin khuyến mãi.\nVui lòng thử lại!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Vui lòng chọn nhân viên cần cập nhật từ danh sách!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Vui lòng chọn khuyến mãi cần cập nhật từ danh sách!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-
-
             }
         }
 
@@ -162,11 +208,15 @@ namespace GymGenZ.PViews
         private void ClearFields()
         {
             tbIDPromotion.Text = string.Empty;
-            tbdateStart.Text = string.Empty;
-            tbDateEnd.Text = string.Empty;
             rdoActivePromotion.Checked = false;
             rdoExpiredPromotion.Checked = false;
+            dateTPdateEnd.Value = DateTime.Now;
+            dateTPStart.Value = DateTime.Now;
         }
 
+        private void tbFindDiscount_TextChanged(object sender, EventArgs e)
+        {
+            Findicount();
+        }
     }
 }
